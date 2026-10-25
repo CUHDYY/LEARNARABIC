@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iraqi Arabic Quest 🇮🇶</title>
+<style>
+:root {
+  --bg:#101018; --panel:#1c1c29; --purple:#a78bfa;
+  --yellow:#facc15; --text:#f8fafc; --muted:#a1a1b5;
+  --green:#4ade80; --red:#fb7185;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:system-ui,-apple-system,sans-serif;
+}
+button { font:inherit; cursor:pointer; }
+button:focus-visible { outline:3px solid var(--yellow); }
+header {
+  padding:20px 16px; border-bottom:1px solid #303040;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px; max-width:900px; margin:auto;
+}
+.logo { font-size:19px; font-weight:900; }
+.logo span { color:var(--purple); }
+.xp {
+  background:#302744; color:#e9d5ff; border-radius:30px;
+  padding:8px 12px; font-size:13px; font-weight:800;
+}
+main { width:min(100% - 28px,760px); margin:24px auto 100px; }
+h1 { font-size:clamp(27px,6vw,40px); line-height:1.15; margin:8px 0; }
+h2 { font-size:21px; margin:0 0 14px; }
+p { color:var(--muted); line-height:1.6; }
+.hero {
+  background:linear-gradient(135deg,#302449,#20243b);
+  border:1px solid #49405e; border-radius:24px; padding:24px;
+}
+.eyebrow { color:var(--yellow); font-size:12px; font-weight:900; letter-spacing:1px; }
+.progress {
+  height:9px; background:#373747; border-radius:20px;
+  overflow:hidden; margin:18px 0 8px;
+}
+#bar { height:100%; width:0%; background:var(--green); transition:width .3s; }
+.small { font-size:12px; }
+.card {
+  background:var(--panel); border:1px solid #303040;
+  padding:19px; border-radius:19px; margin-top:18px;
+}
+.cards {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.tile {
+  background:var(--panel); border:1px solid #303040;
+  border-radius:17px; padding:16px; min-width:0;
+}
+.tile .emoji { font-size:25px; }
+.tile strong { display:block; margin-top:7px; }
+.tile p { font-size:13px; margin-bottom:0; }
+.btn {
+  border:0; border-radius:12px; padding:13px 16px;
+  background:var(--purple); color:#171323; font-weight:850;
+  width:100%; margin-top:12px;
+}
+.btn.secondary {
+  background:#303040; color:var(--text); border:1px solid #49495d;
+}
+.btn:active { transform:scale(.99); }
+.phrase {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:15px 0; border-bottom:1px solid #333344;
+}
+.phrase:last-child { border:0; }
+.arabic { font-size:27px; direction:rtl; }
+.translit { color:var(--purple); font-size:14px; margin-top:4px; }
+.meaning { color:var(--muted); font-size:13px; margin-top:4px; }
+.sound {
+  flex-shrink:0; background:#343044; border:0; color:white;
+  border-radius:12px; width:43px; height:43px; font-size:18px;
+}
+.option {
+  width:100%; text-align:left; color:var(--text);
+  background:#252535; border:1px solid #444457;
+  padding:14px; border-radius:12px; margin:6px 0;
+}
+.option.correct { border-color:var(--green); background:#173627; }
+.option.wrong { border-color:var(--red); background:#3b202a; }
+#feedback { min-height:26px; font-weight:700; font-size:14px; }
+nav {
+  position:fixed; bottom:0; left:0; right:0; z-index:5;
+  background:#171721f5; border-top:1px solid #343444;
+  display:flex; justify-content:center; padding:9px 4px;
+  padding-bottom:max(9px,env(safe-area-inset-bottom));
+}
+.navbtn {
+  flex:1; max-width:170px; background:transparent; border:0;
+  color:var(--muted); padding:9px 2px; border-radius:12px;
+  font-size:12px; font-weight:750;
+}
+.navbtn span { display:block; font-size:20px; margin-bottom:3px; }
+.navbtn.active { color:var(--yellow); background:#292536; }
+.hidden { display:none !important; }
+footer { text-align:center; font-size:12px; color:var(--muted); padding:20px; }
+@media(max-width:380px) {
+  .cards { grid-template-columns:1fr; }
+  .hero { padding:19px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🇮🇶 Iraqi <span>Quest</span></div>
+  <div class="xp">⭐ <span id="xp">0</span> XP</div>
+</header>
+
+<main>
+  <section id="home">
+    <div class="hero">
+      <div class="eyebrow">YOUR IRAQI ARABIC JOURNEY</div>
+      <h1>YALLA, LET'S LEARN! 🔥</h1>
+      <p>Learn real Iraqi Arabic one funny little lesson at a time.</p>
+      <div class="progress"><div id="bar"></div></div>
+      <div class="small"><span id="done">0</span> of 5 beginner questions completed</div>
+      <button class="btn" onclick="showPage('lesson')">Start learning →</button>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">TODAY'S PHRASE</div>
+      <div class="arabic">شكو ماكو؟</div>
+      <div class="translit">Shaku maku?</div>
+      <h2 style="margin-top:10px">What's up? 👀</h2>
+      <p>A casual Iraqi expression you might hear in everyday conversations.</p>
+      <button class="btn secondary" onclick="speak('شكو ماكو')">🔊 Hear the Arabic</button>
+    </div>
+
+    <h2 style="margin-top:25px">Your learning world 🌎</h2>
+    <div class="cards">
+      <div class="tile">
+        <div class="emoji">📚</div><strong>Mini lessons</strong>
+        <p>Learn useful everyday phrases.</p>
+        <button class="btn secondary" onclick="showPage('lesson')">Learn</button>
+      </div>
+      <div class="tile">
+        <div class="emoji">🗣️</div><strong>Phrasebook</strong>
+        <p>Arabic, pronunciation and meaning.</p>
+        <button class="btn secondary" onclick="showPage('phrases')">Explore</button>
+      </div>
+      <div class="tile">
+        <div class="emoji">🎯</div><strong>Quiz time</strong>
+        <p>Test what you remember.</p>
+        <button class="btn secondary" onclick="showPage('quiz')">Play</button>
+      </div>
+      <div class="tile">
+        <div class="emoji">🏆</div><strong>Your progress</strong>
+        <p><span id="homeScore">0</span> XP earned so far.</p>
+        <button class="btn secondary" onclick="showPage('progress')">View</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="lesson" class="hidden">
+    <div class="eyebrow">LESSON 01 · THE BASICS</div>
+    <h1>Your first Iraqi phrases</h1>
+    <p>Read the phrase, say it out loud, and learn what it means.</p>
+    <div class="card" id="lessonList"></div>
+    <button class="btn" onclick="showPage('quiz')">I'm ready for the quiz →</button>
+    <button class="btn secondary" onclick="showPage('phrases')">Explore all phrases</button>
+  </section>
+
+  <section id="phrases" class="hidden">
+    <div class="eyebrow">YOUR POCKET PHRASEBOOK</div>
+    <h1>Useful Iraqi Arabic 🗣️</h1>
+    <p>Tap the speaker button to hear the Arabic using your device's speech engine, if a suitable voice is available.</p>
+    <div class="card" id="phraseList"></div>
+  </section>
+
+  <section id="quiz" class="hidden">
+    <div class="eyebrow">BEGINNER CHALLENGE</div>
+    <h1>Can you get it right? 🎯</h1>
+    <div class="card">
+      <div class="small" id="questionCount">QUESTION 1 OF 5</div>
+      <h2 id="question" style="margin-top:16px"></h2>
+      <div id="options"></div>
+      <div id="feedback" aria-live="polite"></div>
+      <button class="btn hidden" id="next" onclick="nextQuestion()">Next question →</button>
+    </div>
+  </section>
+
+  <section id="progress" class="hidden">
+    <div class="eyebrow">YOUR JOURNEY</div>
+    <h1>Look at you go! 🏆</h1>
+    <div class="card">
+      <h2>⭐ <span id="progressXP">0</span> XP</h2>
+      <p>Total points earned from correct first attempts.</p>
+      <div class="progress"><div id="progressBar"></div></div>
+      <p id="progressText">Keep going — your first lesson awaits.</p>
+      <button class="btn" onclick="showPage('quiz')">Practice again</button>
+      <button class="btn secondary" onclick="showPage('lesson')">Review phrases</button>
+    </div>
+  </section>
+</main>
+
+<footer>Made for curious Arabic learners 💜</footer>
+
+<nav>
+  <button class="navbtn active" data-page="home" onclick="showPage('home')"><span>🏠</span>Home</button>
+  <button class="navbtn" data-page="lesson" onclick="showPage('lesson')"><span>📚</span>Learn</button>
+  <button class="navbtn" data-page="phrases" onclick="showPage('phrases')"><span>💬</span>Phrases</button>
+  <button class="navbtn" data-page="quiz" onclick="showPage('quiz')"><span>🎯</span>Quiz</button>
+  <button class="navbtn" data-page="progress" onclick="showPage('progress')"><span>🏆</span>Progress</button>
+</nav>
+
+<script>
+const phrases = [
+  {ar:"هلا", say:"هلا", latin:"Hala", meaning:"Hi! / Hey!"},
+  {ar:"شلونك؟", say:"شلونك", latin:"Shlonak?", meaning:"How are you? (to a male)"},
+  {ar:"شلونچ؟", say:"شلونج", latin:"Shlonich?", meaning:"How are you? (to a female; spelling varies)"},
+  {ar:"زين", say:"زين", latin:"Zein", meaning:"Good / Fine"},
+  {ar:"شكو ماكو؟", say:"شكو ماكو", latin:"Shaku maku?", meaning:"What's up? / What's happening?"},
+  {ar:"إي", say:"إي", latin:"Ee", meaning:"Yes"},
+  {ar:"لا", say:"لا", latin:"La", meaning:"No"},
+  {ar:"شكراً", say:"شكرا", latin:"Shukran", meaning:"Thank you"},
+  {ar:"ما أعرف", say:"ما اعرف", latin:"Ma a'ref", meaning:"I don't know"},
+  {ar:"أريد مي", say:"اريد مي", latin:"Areed may", meaning:"I want water"}
+];
+
+const questions = [
+ {q:'What does "هلا" mean?', opts:['Goodbye','Hi!','Water'], answer:1},
+ {q:'How do you say "Yes"?', opts:['لا','زين','إي'], answer:2},
+ {q:'What does "ما أعرف" mean?', opts:["I don't know",'Thank you','How are you?'], answer:0},
+ {q:'What does "أريد مي" mean?', opts:['I want water','I am good','What is up?'], answer:0},
+ {q:'What does "شكو ماكو؟" mean?', opts:['Good night','What is your name?',"What's up?"], answer:2}
+];
+
+let xp = Number(localStorage.getItem('iq-xp') || 0);
+let completed = JSON.parse(localStorage.getItem('iq-completed') || '[]');
+let qi = 0;
+let answered = false;
+let earnedThisRun = new Set();
+
+function save() {
+  localStorage.setItem('iq-xp', xp);
+  localStorage.setItem('iq-completed', JSON.stringify(completed));
+  updateProgress();
+}
+
+function updateProgress() {
+  document.getElementById('xp').textContent = xp;
+  document.getElementById('homeScore').textContent = xp;
+  document.getElementById('progressXP').textContent = xp;
+  document.getElementById('done').textContent = completed.length;
+  document.getElementById('bar').style.width = (completed.length / 5 * 100) + '%';
+  document.getElementById('progressBar').style.width = (completed.length / 5 * 100) + '%';
+  document.getElementById('progressText').textContent =
+    completed.length === 5 ? 'Amazing! You finished all five beginner questions.' :
+    `You've completed ${completed.length} of 5 beginner questions.`;
+}
+
+function showPage(page) {
+  document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
+  document.getElementById(page).classList.remove('hidden');
+  document.querySelectorAll('.navbtn').forEach(b =>
+    b.classList.toggle('active', b.dataset.page === page));
+  if(page === 'quiz') renderQuestion();
+  if(page === 'progress') updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function speak(text) {
+  if (!('speechSynthesis' in window)) {
+    alert('Audio speech is not supported in this browser.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'ar-IQ';
+  utterance.rate = 0.82;
+  const voices = window.speechSynthesis.getVoices();
+  const voice = voices.find(v => v.lang.toLowerCase() === 'ar-iq')
+    || voices.find(v => v.lang.toLowerCase().startsWith('ar'));
+  if(voice) utterance.voice = voice;
+  window.speechSynthesis.speak(utterance);
+}
+
+function makePhrase(p) {
+  const div = document.createElement('div');
+  div.className = 'phrase';
+  const info = document.createElement('div');
+  const ar = document.createElement('div');
+  ar.className = 'arabic';
+  ar.textContent = p.ar;
+  const latin = document.createElement('div');
+  latin.className = 'translit';
+  latin.textContent = p.latin;
+  const meaning = document.createElement('div');
+  meaning.className = 'meaning';
+  meaning.textContent = p.meaning;
+  info.append(ar, latin, meaning);
+  const btn = document.createElement('button');
+  btn.className = 'sound';
+  btn.textContent = '🔊';
+  btn.setAttribute('aria-label', 'Hear ' + p.latin);
+  btn.onclick = () => speak(p.say);
+  div.append(info, btn);
+  return div;
+}
+
+function buildPhraseLists() {
+  const lessons = document.getElementById('lessonList');
+  const all = document.getElementById('phraseList');
+  phrases.forEach((p, i) => {
+    all.appendChild(makePhrase(p));
+    if(i < 5) lessons.appendChild(makePhrase(p));
+  });
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = questions[qi];
+  document.getElementById('questionCount').textContent =
+    `QUESTION ${qi+1} OF ${questions.length}`;
+  document.getElementById('question').textContent = q.q;
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('next').classList.add('hidden');
+  const box = document.getElementById('options');
+  box.replaceChildren();
+  q.opts.forEach((option, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = option;
+    btn.onclick = () => chooseAnswer(i, btn);
+    box.appendChild(btn);
+  });
+}
+
+function chooseAnswer(i, btn) {
+  if(answered) return;
+  answered = true;
+  const q = questions[qi];
+  const buttons = document.querySelectorAll('#options button');
+  buttons.forEach((b, index) => {
+    b.disabled = true;
+    if(index === q.answer) b.classList.add('correct');
+  });
+
+  if(i === q.answer) {
+    document.getElementById('feedback').textContent = 'Correct! YALLA! 🎉 +10 XP';
+    if(!earnedThisRun.has(qi)) {
+      xp += 10;
+      earnedThisRun.add(qi);
+    }
+    if(!completed.includes(qi)) completed.push(qi);
+    save();
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('feedback').textContent =
+      'Not quite! The correct answer is: ' + q.opts[q.answer];
+  }
+  document.getElementById('next').textContent =
+    qi === questions.length - 1 ? 'Finish quiz 🏆' : 'Next question →';
+  document.getElementById('next').classList.remove('hidden');
+}
+
+function nextQuestion() {
+  if(qi < questions.length - 1) {
+    qi++;
+    renderQuestion();
+  } else {
+    showPage('progress');
+  }
+}
+
+buildPhraseLists();
+updateProgress();
+</script>
+</body>
+</html>
