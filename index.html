@@ -15,54 +15,59 @@ button:focus-visible{outline:3px solid white;outline-offset:3px}
 .primary{background:var(--yellow);color:#151515}
 .secondary{background:#30303c;color:white}
 .skip{background:#282832;color:#fff;border:1px solid #484856}
-header{padding:20px 16px;border-bottom:1px solid #30303a;position:sticky;top:0;background:#101014f5;z-index:5}
+header{padding:14px 16px;border-bottom:1px solid #30303a;position:sticky;top:0;background:#101014f5;z-index:5}
 .top{max-width:850px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{font-size:19px;font-weight:900}.logo span{color:var(--yellow)}
 #progressText{font-size:12px;color:var(--muted)}
-.progress{height:6px;background:#30303b;border-radius:10px;overflow:hidden;margin-top:12px}
+.progress{height:6px;background:#30303b;border-radius:10px;overflow:hidden;margin-top:10px}
 #progressBar{height:100%;width:0;background:var(--yellow);transition:width .2s}
-nav{display:flex;gap:8px;max-width:850px;margin:14px auto 0;overflow-x:auto}
+nav{display:flex;gap:8px;max-width:850px;margin:12px auto 0;overflow-x:auto}
 nav button{white-space:nowrap;background:transparent;color:#aaa;padding:9px 12px}
 nav button.active{background:var(--yellow);color:#151515}
-main{max-width:850px;margin:auto;padding:22px 15px 55px}
+main{max-width:850px;margin:auto;padding:18px 15px 45px}
 .screen{display:none}.screen.active{display:block}
-h1{font-size:clamp(27px,6vw,40px);line-height:1.12;margin:8px 0 12px}
-h2{font-size:22px;margin:0 0 12px}
-p{line-height:1.6}
+h1{font-size:clamp(25px,6vw,38px);line-height:1.12;margin:8px 0 10px}
+h2{font-size:21px;margin:0 0 12px}
+p{line-height:1.5}
 .muted{color:var(--muted)}
-.hero{background:linear-gradient(135deg,#282638,#191921);padding:24px;border:1px solid #383747;border-radius:22px;margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#282638,#191921);padding:22px;border:1px solid #383747;border-radius:22px;margin-bottom:18px}
 .tag{display:inline-block;color:#171717;background:var(--yellow);font-size:12px;font-weight:900;padding:5px 9px;border-radius:7px}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0}
 .stat,.card{background:var(--panel);border:1px solid #30303c;border-radius:16px;padding:15px}
 .stat strong{display:block;font-size:22px;color:var(--yellow)}
 .stat small{color:var(--muted)}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 0 12px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:20px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .lesson-card{background:var(--panel);border:1px solid #30303c;border-radius:14px;padding:14px;text-align:left;color:white;min-width:0}
 .lesson-card strong{display:block;margin-bottom:6px}
 .lesson-card small{color:var(--muted)}
 .lesson-card.done{border-color:#448b68}
 .lesson-card.current{border-color:var(--yellow)}
-.big-arabic{font-size:clamp(36px,9vw,55px);font-weight:800;text-align:center;direction:rtl;margin:12px 0}
-.translit{text-align:center;color:var(--muted);font-size:18px}
-.translation{display:none;text-align:center;font-size:20px;color:var(--green);margin:14px 0}
+.big-arabic{font-size:clamp(40px,10vw,58px);font-weight:800;text-align:center;direction:rtl;margin:12px 0}
+.translit{text-align:center;color:var(--muted);font-size:16px;margin-top:12px}
+.translation{display:none;text-align:center;font-size:20px;color:var(--green);margin:12px 0}
 .translation.show{display:block}
-.lesson-box{background:var(--panel);border:1px solid #353541;border-radius:20px;padding:20px;margin:15px 0}
-.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
-.actions button{flex:1;min-width:125px}
-.status{font-size:13px;color:var(--muted);margin-top:10px;min-height:20px}
-.choice{display:block;width:100%;text-align:left;margin:9px 0;background:#292934;color:#fff;border:1px solid #424251}
+.lesson-box{background:var(--panel);border:1px solid #353541;border-radius:20px;padding:16px;margin:14px 0}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.actions button{flex:1;min-width:115px}
+.status{font-size:12px;color:var(--muted);margin-top:9px;min-height:18px}
+.choices-under-word{display:grid;grid-template-columns:1fr;gap:8px;margin:15px 0 8px}
+.choice{display:block;width:100%;text-align:center;margin:0;background:#292934;color:#fff;border:1px solid #424251;padding:13px 12px;font-size:15px}
 .choice.correct{border-color:var(--green);background:#19382a}
-.choice.wrong{border-color:#ff8585}
-#quizFeedback{min-height:24px;margin-top:12px}
+.choice.wrong{border-color:#ff8585;background:#3a2025}
+#quizFeedback{text-align:center;min-height:20px;margin:8px 0;font-size:14px}
 textarea{width:100%;min-height:110px;background:#111118;color:#fff;border:1px solid #444451;border-radius:12px;padding:12px;resize:vertical}
-input{width:100%;background:#111118;color:#fff;border:1px solid #444451;border-radius:10px;padding:12px}
 pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#111118;border:1px solid #3b3b49;border-radius:12px;padding:14px;min-height:50px}
 .word-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #33333d}
 .word-row .big-arabic{font-size:27px;margin:0;text-align:right}
 .word-row button{padding:9px 12px}
 footer{text-align:center;color:#777;font-size:12px;padding:20px}
-@media(max-width:420px){.hero{padding:18px}.grid{gap:8px}.lesson-card{padding:11px}.stats{gap:7px}.stat{padding:10px}.stat strong{font-size:19px}.lesson-box{padding:15px}}
+@media(max-width:420px){
+ .hero{padding:17px}.grid{gap:8px}.lesson-card{padding:11px}
+ .stats{gap:7px}.stat{padding:10px}.stat strong{font-size:19px}
+ .lesson-box{padding:13px}
+ nav{gap:4px}nav button{padding:9px}
+}
 </style>
 </head>
 <body>
@@ -86,13 +91,13 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
   <div class="hero">
     <span class="tag">BEGINNER FRIENDLY</span>
     <h1>Learn Iraqi Arabic.<br>Actually understand people.</h1>
-    <p class="muted">Learn everyday Iraqi phrases, practise speaking, test yourself, and build your coding skills too.</p>
+    <p class="muted">Learn everyday Iraqi phrases, test yourself, and build your coding skills too.</p>
     <button class="primary" onclick="openLesson(nextLesson())">Continue learning →</button>
   </div>
   <div class="stats">
     <div class="stat"><strong id="doneStat">0</strong><small>Lessons done</small></div>
     <div class="stat"><strong id="wordStat">0</strong><small>Words learned</small></div>
-    <div class="stat"><strong id="streakStat">🇮🇶</strong><small>Your goal</small></div>
+    <div class="stat"><strong>🇮🇶</strong><small>Your goal</small></div>
   </div>
   <div class="section-head"><h2>Pick up where you left off</h2></div>
   <div class="card">
@@ -110,50 +115,52 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
 
 <section id="course" class="screen">
   <h1>Your 100 lessons</h1>
-  <p class="muted">Short lessons that build on one another. Listening is always optional.</p>
+  <p class="muted">Listening is optional. Choose any lesson to begin.</p>
   <div id="lessonGrid" class="grid"></div>
 </section>
 
 <section id="lesson" class="screen">
   <button class="secondary" onclick="showScreen('course')">← All lessons</button>
-  <div class="section-head"><span class="tag" id="lessonNumber">LESSON 1</span><span class="muted" id="lessonCount">1 of 100</span></div>
+  <div class="section-head">
+    <span class="tag" id="lessonNumber">LESSON 1</span>
+    <span class="muted" id="lessonCount">1 of 100</span>
+  </div>
   <h1 id="lessonTitle">Your first phrase</h1>
-  <p class="muted" id="lessonDescription">Learn a useful Iraqi Arabic expression.</p>
+  <p class="muted" id="lessonDescription">Choose the correct meaning below.</p>
 
   <div class="lesson-box">
-    <div class="big-arabic" id="lessonArabic" lang="ar" dir="rtl">شلونك؟</div>
-    <div class="translit" id="lessonTranslit">shلونak</div>
+    <div class="big-arabic" id="lessonArabic" lang="ar" dir="rtl">هلا</div>
+
+    <!-- Answer choices are directly under the Arabic phrase -->
+    <div id="quizChoices" class="choices-under-word"></div>
+    <p id="quizFeedback" aria-live="polite"></p>
+
+    <div class="translit" id="lessonTranslit">hala</div>
     <div id="lessonTranslation" class="translation"></div>
+
     <div class="actions">
       <button class="primary" onclick="speakCurrent()">🔊 Hear phrase</button>
       <button class="secondary" onclick="revealTranslation()">👀 Reveal meaning</button>
     </div>
-    <p class="status" id="audioStatus">Audio is optional. You can continue without listening.</p>
-  </div>
-
-  <div class="card">
-    <h2>Quick practice</h2>
-    <p id="quizQuestion">What does this phrase mean?</p>
-    <div id="quizChoices"></div>
-    <p id="quizFeedback"></p>
+    <p class="status" id="audioStatus">Listening is optional. Guess the meaning or skip!</p>
   </div>
 
   <div class="actions">
-    <button class="skip" onclick="completeLesson(true)">Skip practice →</button>
-    <button class="primary" onclick="completeLesson(false)">Finish lesson ✓</button>
+    <button class="skip" onclick="completeLesson()">Skip practice →</button>
+    <button class="primary" onclick="completeLesson()">Next lesson →</button>
   </div>
-  <p class="muted">You can finish without playing audio or revealing the translation.</p>
+  <p class="muted">You can continue without listening or answering.</p>
 </section>
 
 <section id="listen" class="screen">
   <h1>🎧 Listening room</h1>
-  <p class="muted">Practise hearing Iraqi Arabic. This is completely optional and separate from your course progress.</p>
+  <p class="muted">Practise hearing Iraqi Arabic. This section is optional.</p>
   <div class="lesson-box">
     <span class="tag">LISTEN FIRST</span>
-    <div class="big-arabic" id="listenArabic" lang="ar" dir="rtl">أهلاً</div>
+    <div class="big-arabic" id="listenArabic" lang="ar" dir="rtl">هلا</div>
     <div class="actions">
       <button class="primary" onclick="playListening()">▶ Play Arabic</button>
-      <button class="secondary" onclick="replayListening()">↻ Replay</button>
+      <button class="secondary" onclick="playListening()">↻ Replay</button>
       <button class="skip" onclick="nextListening()">Next phrase →</button>
     </div>
     <p class="status" id="listenStatus">Listen as many times as you like.</p>
@@ -162,7 +169,7 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
   </div>
   <div class="card">
     <h2>Audio not working?</h2>
-    <p class="muted">Audio depends on the voices available on your device and browser. Try opening the website in Safari and checking that silent mode and volume settings allow sound.</p>
+    <p class="muted">Available Arabic voices depend on your browser and device. You can still use every lesson without audio.</p>
   </div>
 </section>
 
@@ -175,9 +182,9 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
 <section id="javascript" class="screen">
   <span class="tag">BONUS COURSE</span>
   <h1>Learn JavaScript 💻</h1>
-  <p class="muted">Start with variables, then practise functions, conditions, and more.</p>
+  <p class="muted">Learn variables, functions, conditions, arrays, and loops.</p>
   <div class="card">
-    <div class="section-head"><h2 id="jsTitle">Lesson 1: Your first variable</h2><span id="jsCount" class="muted">1 / 8</span></div>
+    <div class="section-head"><h2 id="jsTitle">Lesson 1</h2><span id="jsCount" class="muted">1 / 8</span></div>
     <p id="jsExplanation"></p>
     <pre id="jsExample"></pre>
     <h2>Try it yourself</h2>
@@ -189,7 +196,6 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
       <button class="secondary" onclick="nextJsLesson()">Next lesson →</button>
     </div>
     <pre id="jsOutput">Your output will appear here.</pre>
-    <p class="status">Code runs in a restricted sandbox. It cannot access your website's page.</p>
   </div>
 </section>
 </main>
@@ -197,9 +203,9 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
 
 <script>
 const phrases = [
-["هلا","hala","Hi / Hey","Greeting"],
-["شلونك؟","shلونak?","How are you? (to a male)","Greetings"],
-["شلونج؟","shلونich?","How are you? (to a female)","Greetings"],
+["هلا","hala","Hi / Hey","Greetings"],
+["شلونك؟","shlonak?","How are you? (to a male)","Greetings"],
+["شلونج؟","shlonich?","How are you? (to a female)","Greetings"],
 ["زين","zain","Good / Fine","Greetings"],
 ["الحمدلله","alhamdulillah","Thank God / I'm fine","Greetings"],
 ["شنو اسمك؟","shنو ismak?","What's your name? (to a male)","Introductions"],
@@ -221,7 +227,7 @@ const phrases = [
 ["شكد؟","shkad?","How much?","Questions"],
 ["شوقت؟","shwagt?","When?","Questions"],
 ["منو؟","mino?","Who?","Questions"],
-["شلون؟","shلون?","How?","Questions"],
+["شلون؟","shlon?","How?","Questions"],
 ["أريد مي","areed may","I want water","Food"],
 ["أريد أكل","areed akil","I want food","Food"],
 ["جوعان","jooaan","Hungry (male)","Food"],
@@ -237,7 +243,7 @@ const phrases = [
 ["ماكو","mako","There isn't / There are none","Everyday"],
 ["أكو","ako","There is / There are","Everyday"],
 ["كلش زين","kilish zain","Very good","Everyday"],
-["أحبك","aḥibbak","I love you (to a male)","Feelings"],
+["أحبك","ahibbak","I love you (to a male)","Feelings"],
 ["مشتاقلك","mishtaqillak","I miss you (to a male)","Feelings"],
 ["تعبان","taaban","Tired (male)","Feelings"],
 ["فرحان","farhan","Happy (male)","Feelings"],
@@ -249,31 +255,24 @@ const phrases = [
 ["بالليل","billail","At night","Time"]
 ];
 
-// Build 100 lesson slots from a beginner phrase curriculum.
-// Phrases recur for review; the lesson objective changes.
-const objectives = [
-"Learn the phrase and say it aloud if you want.",
-"Recognise the phrase when you hear it.",
-"Practise remembering the meaning.",
-"Use the phrase in a simple conversation."
+const objectives=[
+"Learn this everyday Iraqi Arabic phrase.",
+"Practise remembering what the phrase means.",
+"Recognise the phrase in everyday conversation.",
+"Review this phrase and build your vocabulary."
 ];
-const lessons = Array.from({length:100},(_,i)=>{
- const phrase=phrases[i%phrases.length];
+const lessons=Array.from({length:100},(_,i)=>{
+ const p=phrases[i%phrases.length];
  const round=Math.floor(i/phrases.length)+1;
- return {id:i,ar:phrase[0],latin:phrase[1],meaning:phrase[2],category:phrase[3],
- title:i<phrases.length?phrase[2]:phrase[2]+" · Review "+round,
+ return {id:i,ar:p[0],latin:p[1],meaning:p[2],category:p[3],
+ title:i<phrases.length?p[2]:p[2]+" · Review "+round,
  description:objectives[Math.floor(i/objectives.length)%objectives.length]};
 });
 
 let saved={};
-try{saved=JSON.parse(localStorage.getItem("iraqiAcademyProgress")||"{}")||{}}catch(e){saved={}}
+try{saved=JSON.parse(localStorage.getItem("iraqiAcademyProgress")||"{}")||{}}catch(e){}
 let completed=new Set(Array.isArray(saved.completed)?saved.completed:[]);
-let currentLesson=0;
-let currentQuizAnswer="";
-let quizAnswered=false;
-let listeningIndex=0;
-let currentJs=0;
-let voices=[];
+let currentLesson=0,quizAnswered=false,currentQuizAnswer="",listeningIndex=0,currentJs=0;
 
 function persist(){
  try{localStorage.setItem("iraqiAcademyProgress",JSON.stringify({completed:[...completed]}))}catch(e){}
@@ -281,7 +280,7 @@ function persist(){
 }
 function updateProgress(){
  document.getElementById("progressText").textContent=completed.size+" / 100 lessons";
- document.getElementById("progressBar").style.width=(completed.size)+"%";
+ document.getElementById("progressBar").style.width=completed.size+"%";
  document.getElementById("doneStat").textContent=completed.size;
  document.getElementById("wordStat").textContent=Math.min(completed.size,phrases.length);
  document.getElementById("homeNext").textContent="Next up: "+lessons[nextLesson()].title;
@@ -292,37 +291,36 @@ function nextLesson(){
 }
 function showScreen(id,button){
  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
- const screen=document.getElementById(id);
- if(screen)screen.classList.add("active");
+ const el=document.getElementById(id);if(el)el.classList.add("active");
  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.screen===id||(id==="lesson"&&b.dataset.screen==="course")));
  if(button)button.classList.add("active");
  window.scrollTo({top:0,behavior:"smooth"});
 }
 document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>showScreen(b.dataset.screen,b)));
+function escapeHtml(s){
+ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
 function renderGrid(){
- const grid=document.getElementById("lessonGrid");
- grid.innerHTML="";
+ const grid=document.getElementById("lessonGrid");grid.innerHTML="";
  lessons.forEach(l=>{
   const b=document.createElement("button");
   b.className="lesson-card"+(completed.has(l.id)?" done":"")+(l.id===nextLesson()?" current":"");
-  b.innerHTML="<strong>"+(completed.has(l.id)?"✓ ":"")+ (l.id+1)+". "+escapeHtml(l.title)+"</strong><small>"+escapeHtml(l.category)+" · "+(completed.has(l.id)?"Completed":"Open lesson")+"</small>";
-  b.onclick=()=>openLesson(l.id);
-  grid.appendChild(b);
+  b.innerHTML="<strong>"+(completed.has(l.id)?"✓ ":"")+(l.id+1)+". "+escapeHtml(l.title)+"</strong><small>"+escapeHtml(l.category)+" · "+(completed.has(l.id)?"Completed":"Open lesson")+"</small>";
+  b.onclick=()=>openLesson(l.id);grid.appendChild(b);
  });
 }
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function openLesson(id){
  currentLesson=Math.max(0,Math.min(99,id));
  const l=lessons[currentLesson];
  document.getElementById("lessonNumber").textContent="LESSON "+(currentLesson+1);
  document.getElementById("lessonCount").textContent=(currentLesson+1)+" of 100";
  document.getElementById("lessonTitle").textContent=l.title;
- document.getElementById("lessonDescription").textContent=l.description+" Listening is optional.";
+ document.getElementById("lessonDescription").textContent=l.description;
  document.getElementById("lessonArabic").textContent=l.ar;
  document.getElementById("lessonTranslit").textContent=l.latin;
  document.getElementById("lessonTranslation").textContent=l.meaning;
  document.getElementById("lessonTranslation").classList.remove("show");
- document.getElementById("audioStatus").textContent="Audio is optional. You can continue without listening.";
+ document.getElementById("audioStatus").textContent="Listening is optional. Guess the meaning or skip!";
  document.getElementById("quizFeedback").textContent="";
  quizAnswered=false;
  buildQuiz(l);
@@ -331,75 +329,74 @@ function openLesson(id){
 function revealTranslation(){document.getElementById("lessonTranslation").classList.add("show")}
 function buildQuiz(l){
  const options=[l.meaning];
- for(let i=1;i<phrases.length&&options.length<3;i++){
-  const meaning=phrases[(l.id+i*7)%phrases.length][2];
+ let step=1;
+ while(options.length<4&&step<phrases.length+1){
+  const meaning=phrases[(l.id+step*7)%phrases.length][2];
   if(!options.includes(meaning))options.push(meaning);
+  step++;
  }
- // Deterministic shuffle
- options.sort((a,b)=>((a.length*13+b.length*7)%11)-5);
+ // Shuffle choices so the correct answer is not always in the same position.
+ for(let i=options.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  [options[i],options[j]]=[options[j],options[i]];
+ }
  currentQuizAnswer=l.meaning;
- const box=document.getElementById("quizChoices");
- box.innerHTML="";
+ const box=document.getElementById("quizChoices");box.innerHTML="";
  options.forEach(option=>{
   const b=document.createElement("button");
   b.className="choice";b.textContent=option;
   b.onclick=()=>{
    if(quizAnswered)return;
    quizAnswered=true;
+   [...box.children].forEach(choice=>{
+    choice.disabled=true;
+    if(choice.textContent===currentQuizAnswer)choice.classList.add("correct");
+   });
    if(option===currentQuizAnswer){
-    b.classList.add("correct");
     document.getElementById("quizFeedback").textContent="Correct! 🎉";
    }else{
     b.classList.add("wrong");
-    document.getElementById("quizFeedback").textContent="Not quite. The answer is: "+currentQuizAnswer;
+    document.getElementById("quizFeedback").textContent="Not quite! Green shows the correct answer.";
    }
    revealTranslation();
   };
   box.appendChild(b);
  });
- document.getElementById("quizQuestion").textContent="What does “"+l.ar+"” mean?";
 }
-function completeLesson(skip){
- completed.add(currentLesson);
- persist();
- renderGrid();
- if(currentLesson<99){
-  openLesson(currentLesson+1);
- }else{
-  showScreen("course");
-  alert("Amazing! You've completed all 100 lesson slots. Keep reviewing your phrases!");
- }
+function completeLesson(){
+ completed.add(currentLesson);persist();renderGrid();
+ if(currentLesson<99)openLesson(currentLesson+1);
+ else{showScreen("course");alert("You completed all 100 lesson slots! Keep reviewing your phrases.")}
 }
-function speak(textToSay,onDone){
+function speak(text,onDone){
  if(!("speechSynthesis" in window)){
-  if(onDone)onDone(false);
-  return;
+  if(onDone)onDone(false);return;
  }
  window.speechSynthesis.cancel();
- const u=new SpeechSynthesisUtterance(textToSay);
+ const u=new SpeechSynthesisUtterance(text);
  u.lang="ar-IQ";u.rate=.78;u.pitch=1;
  u.onend=()=>{if(onDone)onDone(true)};
  u.onerror=()=>{if(onDone)onDone(false)};
  window.speechSynthesis.speak(u);
 }
 function speakCurrent(){
- const l=lessons[currentLesson];
  document.getElementById("audioStatus").textContent="Playing audio…";
- speak(l.ar,ok=>document.getElementById("audioStatus").textContent=ok?"Finished. Replay any time, or continue without listening.":"Audio is unavailable in this browser. You can still continue.");
+ speak(lessons[currentLesson].ar,ok=>{
+  document.getElementById("audioStatus").textContent=ok?"Finished! You can replay or continue.":"Audio unavailable. You can still continue.";
+ });
 }
 function renderListening(){
  const p=phrases[listeningIndex%phrases.length];
  document.getElementById("listenArabic").textContent=p[0];
  document.getElementById("listenTranslation").textContent=p[2];
  document.getElementById("listenTranslation").classList.remove("show");
- document.getElementById("listenStatus").textContent="Phrase "+(listeningIndex%phrases.length+1)+" of "+phrases.length+". Listening is optional.";
+ document.getElementById("listenStatus").textContent="Phrase "+(listeningIndex%phrases.length+1)+" of "+phrases.length;
 }
 function playListening(){
  const p=phrases[listeningIndex%phrases.length];
  document.getElementById("listenStatus").textContent="Playing…";
- speak(p[0],ok=>document.getElementById("listenStatus").textContent=ok?"Done! Replay or move to the next phrase.":"Audio is unavailable. Try another browser or device voice.");
+ speak(p[0],ok=>document.getElementById("listenStatus").textContent=ok?"Done! Replay or try the next phrase.":"Audio unavailable on this browser.");
 }
-function replayListening(){playListening()}
 function nextListening(){listeningIndex=(listeningIndex+1)%phrases.length;renderListening()}
 function revealListening(){document.getElementById("listenTranslation").classList.add("show")}
 function renderWords(){
@@ -415,14 +412,14 @@ function renderWords(){
 }
 
 const jsLessons=[
- {title:"Your first variable",explain:"A variable stores information. Use let when the value might change.",example:'let name = "Alex";\nconsole.log(name);',expected:"Alex"},
- {title:"Numbers and maths",explain:"JavaScript can calculate numbers using +, -, *, and /.",example:"let result = 7 * 6;\nconsole.log(result);",expected:"42"},
- {title:"Text and joining words",explain:"Strings are text inside quotes. Use + to join strings.",example:'let name = "Sam";\nconsole.log("Hi " + name);',expected:"Hi Sam"},
- {title:"Conditions",explain:"An if statement runs code only when a condition is true.",example:'let age = 15;\nif (age >= 13) {\n  console.log("Teen");\n} else {\n  console.log("Not a teen");\n}',expected:"Teen"},
- {title:"Functions",explain:"A function is a reusable block of code.",example:'function greet() {\n  console.log("Hello!");\n}\ngreet();',expected:"Hello!"},
- {title:"Arrays",explain:"An array stores a list. Array positions start at zero.",example:'let games = ["Roblox", "Minecraft"];\nconsole.log(games[0]);',expected:"Roblox"},
- {title:"Loops",explain:"A loop repeats code. This loop prints numbers from 1 to 3.",example:'for (let i = 1; i <= 3; i++) {\n  console.log(i);\n}',expected:"1\n2\n3"},
- {title:"Make your own message",explain:"Combine variables and strings to print your own message.",example:'let language = "Iraqi Arabic";\nconsole.log("I am learning " + language + "!");',expected:"I am learning Iraqi Arabic!"}
+ {title:"Your first variable",explain:"A variable stores information. Use let when the value might change.",example:'let name = "Alex";\nconsole.log(name);'},
+ {title:"Numbers and maths",explain:"JavaScript can calculate numbers using +, -, *, and /.",example:"let result = 7 * 6;\nconsole.log(result);"},
+ {title:"Text and joining words",explain:"Strings are text inside quotes. Use + to join strings.",example:'let name = "Sam";\nconsole.log("Hi " + name);'},
+ {title:"Conditions",explain:"An if statement runs code when a condition is true.",example:'let age = 15;\nif (age >= 13) {\n  console.log("Teen");\n} else {\n  console.log("Not a teen");\n}'},
+ {title:"Functions",explain:"A function is a reusable block of code.",example:'function greet() {\n  console.log("Hello!");\n}\ngreet();'},
+ {title:"Arrays",explain:"An array stores a list. Positions start at zero.",example:'let games = ["Roblox", "Minecraft"];\nconsole.log(games[0]);'},
+ {title:"Loops",explain:"A loop repeats code. This prints numbers from 1 to 3.",example:'for (let i = 1; i <= 3; i++) {\n  console.log(i);\n}'},
+ {title:"Make your own message",explain:"Combine variables and strings to print your own message.",example:'let language = "Iraqi Arabic";\nconsole.log("I am learning " + language + "!");'}
 ];
 function renderJs(){
  const l=jsLessons[currentJs];
@@ -433,20 +430,21 @@ function renderJs(){
  document.getElementById("jsEditor").value=l.example;
  document.getElementById("jsOutput").textContent="Your output will appear here.";
 }
-function resetCode(){document.getElementById("jsEditor").value=jsLessons[currentJs].example;document.getElementById("jsOutput").textContent="Your output will appear here."}
+function resetCode(){
+ document.getElementById("jsEditor").value=jsLessons[currentJs].example;
+ document.getElementById("jsOutput").textContent="Your output will appear here.";
+}
 function runCode(){
  const code=document.getElementById("jsEditor").value;
  const frame=document.createElement("iframe");
- frame.sandbox="allow-scripts";
- frame.title="JavaScript code runner";
- frame.style.display="none";
+ frame.sandbox="allow-scripts";frame.title="JavaScript code runner";frame.style.display="none";
  document.body.appendChild(frame);
  const safeCode=JSON.stringify(code);
  frame.srcdoc=`<!doctype html><meta charset="utf-8"><script>
  const output=[];
  console.log=(...args)=>output.push(args.map(v=>typeof v==="object"?JSON.stringify(v):String(v)).join(" "));
- try { (new Function(${safeCode}))(); parent.postMessage({type:"js-output",output:output.join("\\n")},"*"); }
- catch(e){ parent.postMessage({type:"js-error",error:String(e)},"*"); }
+ try{(new Function(${safeCode}))();parent.postMessage({type:"js-output",output:output.join("\\n")},"*")}
+ catch(e){parent.postMessage({type:"js-error",error:String(e)},"*")}
  <\/script>`;
  let finished=false;
  const receive=e=>{
@@ -458,7 +456,12 @@ function runCode(){
   }
  };
  window.addEventListener("message",receive);
- setTimeout(()=>{if(!finished){finished=true;window.removeEventListener("message",receive);frame.remove();document.getElementById("jsOutput").textContent="Code took too long or did not finish."}},1200);
+ setTimeout(()=>{
+  if(!finished){
+   finished=true;window.removeEventListener("message",receive);frame.remove();
+   document.getElementById("jsOutput").textContent="Code took too long or did not finish.";
+  }
+ },1200);
 }
 function nextJsLesson(){currentJs=(currentJs+1)%jsLessons.length;renderJs()}
 
