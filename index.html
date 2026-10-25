@@ -2,289 +2,527 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#11111b">
-<title>Iraqi Quest — 100 Lessons</title>
+<title>Iraqi Quest 🇮🇶</title>
 <style>
-:root{--bg:#11111b;--panel:#1b1b29;--panel2:#25253a;--line:#39394f;--text:#f7f7ff;--muted:#aaaac0;--purple:#b6a0ff;--yellow:#f8d65c;--green:#66e3a1;--red:#ff879a}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
-header{position:sticky;top:0;z-index:5;background:#11111bf2;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:13px 15px;display:flex;align-items:center;justify-content:space-between;gap:8px}.brand{font-weight:950;font-size:18px}.brand span{color:var(--purple)}.stats{display:flex;gap:6px}.pill{background:var(--panel);border:1px solid var(--line);padding:7px 9px;border-radius:99px;font-size:12px;font-weight:850;white-space:nowrap}
-main{max-width:850px;margin:auto;padding:17px 13px 100px}.screen{display:none}.screen.active{display:block}.muted{color:var(--muted)}.eyebrow{font-size:11px;letter-spacing:1.5px;color:var(--yellow);font-weight:900}.hero{padding:24px;border:1px solid #4a416b;border-radius:23px;background:radial-gradient(circle at 90% 10%,#4d3b73 0,transparent 42%),linear-gradient(135deg,#29223f,#1b2336)}h1{font-size:clamp(28px,7vw,43px);line-height:1.1;margin:10px 0}h2{font-size:22px;margin:0 0 10px}h3{font-size:17px;margin:0 0 8px}p{line-height:1.6}.btn{width:100%;border:0;border-radius:13px;background:var(--yellow);color:#211b08;font-weight:900;padding:13px 15px;margin-top:10px}.btn.alt{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:14px}.bar{height:8px;background:#37374b;border-radius:20px;overflow:hidden;margin:12px 0 5px}.bar span{height:100%;display:block;background:var(--green);width:0;transition:width .2s}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:13px}.mini{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:15px}.mini strong{font-size:23px;display:block}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:23px 0 11px}.path{display:grid;gap:10px}.unit{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:13px;display:grid;grid-template-columns:42px minmax(0,1fr);gap:11px;align-items:center}.unit.locked{opacity:.55}.unit-icon{width:42px;height:42px;border-radius:13px;background:#302945;display:grid;place-items:center;font-size:20px}.unit-title{font-weight:900}.unit-desc{font-size:12px;color:var(--muted);margin-top:3px}.unit-meta{font-size:10px;color:var(--purple);font-weight:900;margin-top:5px}.unit button{grid-column:1/-1;margin-top:0}.back{background:none;color:var(--muted);border:0;padding:4px 0 15px;font-weight:800}.lesson-top{display:flex;align-items:center;gap:10px}.lesson-progress{flex:1;height:8px;background:#38384b;border-radius:20px;overflow:hidden}.lesson-progress span{display:block;height:100%;width:0;background:var(--green);transition:width .2s}.lesson-card{margin-top:15px;background:var(--panel);border:1px solid var(--line);border-radius:21px;padding:20px;min-height:275px}.arabic{font-size:clamp(30px,8vw,43px);direction:rtl;text-align:center;font-weight:850;margin:14px 0}.translit{text-align:center;color:var(--purple);font-size:17px;font-weight:750}.translation{text-align:center;font-size:19px;margin:9px 0}.note{background:#28253a;border-left:3px solid var(--purple);padding:12px 13px;border-radius:8px;color:#e1dcf8;font-size:14px;line-height:1.6;margin-top:16px}.choice{width:100%;text-align:left;border:1px solid #44445b;background:var(--panel2);color:var(--text);padding:14px;border-radius:12px;margin-top:9px}.choice.good{border-color:var(--green);background:#193a30}.choice.bad{border-color:var(--red);background:#402631}.feedback{min-height:27px;margin-top:12px;font-weight:800}.phrase-row{display:flex;gap:11px;align-items:center;border-bottom:1px solid var(--line);padding:13px 0}.phrase-row:last-child{border:0}.phrase-row .arabic{font-size:25px;margin:0;text-align:right}.phrase-info{flex:1;min-width:0}.sound{border:1px solid var(--line);background:var(--panel2);color:white;border-radius:12px;width:43px;height:43px;flex-shrink:0}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.tab{background:var(--panel2);color:var(--muted);border:1px solid var(--line);padding:8px 11px;border-radius:99px;font-weight:800;font-size:12px}.tab.active{color:var(--yellow);border-color:var(--yellow)}nav{position:fixed;bottom:0;left:0;right:0;z-index:8;display:flex;justify-content:center;background:#171722f5;border-top:1px solid var(--line);padding:7px 3px;padding-bottom:max(7px,env(safe-area-inset-bottom));backdrop-filter:blur(12px)}nav button{flex:1;max-width:170px;border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:850;padding:7px 1px;border-radius:10px}nav button span{display:block;font-size:20px;margin-bottom:3px}nav button.active{color:var(--yellow);background:#302b3c}.tiny{font-size:12px}.center{text-align:center}.finish{padding:20px 8px;text-align:center}.big{font-size:52px}
-@media(min-width:650px){.path{grid-template-columns:1fr 1fr}.hero{padding:30px}.lesson-card{padding:27px}}@media(max-width:370px){.stats .pill{font-size:10px;padding:6px}}
+:root{--bg:#11111b;--card:#1b1b2b;--line:#39394f;--text:#f7f7ff;--muted:#aaaac0;--yellow:#f8d65c;--purple:#b6a0ff;--green:#66e3a1;--red:#ff879a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif}
+header{position:sticky;top:0;background:#11111bf2;border-bottom:1px solid var(--line);padding:13px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.brand{font-weight:950;font-size:19px}.brand span{color:var(--yellow)}
+main{max-width:760px;margin:auto;padding:16px 13px 100px}
+.screen{display:none}.screen.active{display:block}
+h1{font-size:clamp(28px,7vw,40px);margin:10px 0}
+h2{font-size:22px}.muted{color:var(--muted)}
+.panel,.hero{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;margin:12px 0}
+.hero{background:linear-gradient(135deg,#302744,#202b43);padding:23px}
+.eyebrow{font-size:11px;letter-spacing:1.5px;color:var(--yellow);font-weight:900}
+button{font:inherit;cursor:pointer}
+.btn{width:100%;padding:13px;border:0;border-radius:12px;background:var(--yellow);color:#201b09;font-weight:900;margin-top:10px}
+.btn.alt{background:#29293d;color:white;border:1px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.arabic{direction:rtl;text-align:center;font-size:clamp(32px,8vw,46px);font-weight:850;margin:22px 0}
+.translit{text-align:center;color:var(--purple);font-size:18px;font-weight:750;margin:10px 0}
+.meaning{text-align:center;font-size:20px;margin:12px 0}
+.hidden{display:none}
+.note{background:#28253a;border-left:3px solid var(--purple);padding:12px;border-radius:8px;line-height:1.6;margin-top:12px}
+.choice{width:100%;padding:14px;text-align:left;background:#29293d;color:white;border:1px solid var(--line);border-radius:12px;margin-top:9px}
+.choice.good{border-color:var(--green);background:#193a30}
+.choice.bad{border-color:var(--red);background:#402631}
+.bar{height:8px;background:#39394f;border-radius:9px;overflow:hidden;margin:13px 0}
+.bar span{display:block;height:100%;background:var(--green);width:0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#171722f5;border-top:1px solid var(--line);display:flex;justify-content:center;padding:7px 2px max(7px,env(safe-area-inset-bottom));z-index:5}
+nav button{flex:1;max-width:180px;background:transparent;color:var(--muted);border:0;padding:7px 1px;font-size:11px;font-weight:800}
+nav button span{display:block;font-size:20px;margin-bottom:3px}
+nav button.active{color:var(--yellow)}
+.lesson-item{background:var(--card);padding:13px;border:1px solid var(--line);border-radius:12px;margin:9px 0}
+textarea{width:100%;min-height:140px;background:#0d0d15;color:#e9e6ff;border:1px solid var(--line);border-radius:12px;padding:12px;font:14px/1.5 monospace}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0d0d15;padding:12px;border-radius:10px;min-height:40px}
+small{color:var(--muted)}
+@media(min-width:600px){.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
 </style>
 </head>
 <body>
-<header><div class="brand">🇮🇶 Iraqi <span>Quest</span></div><div class="stats"><div class="pill">🔥 <b id="streak">0</b></div><div class="pill">⭐ <b id="xp">0</b> XP</div></div></header>
+<header>
+  <div class="brand">🇮🇶 Iraqi <span>Quest</span></div>
+  <div>⭐ <b id="xp">0</b> XP</div>
+</header>
+
 <main>
 <section id="home" class="screen active">
-<div class="hero"><div class="eyebrow">100-LESSON IRAQI ARABIC COURSE</div><h1>Understand Arabic.<br>Speak Iraqi.</h1><p class="muted">You already know how to pronounce some Arabic. Now learn what the words mean, how they fit together, and how to understand real conversations — one step at a time.</p><div class="bar"><span id="overallBar"></span></div><div class="tiny muted" id="overallText">0 of 100 lessons complete</div><button class="btn" onclick="continueCourse()">Continue learning →</button></div>
-<div class="grid2"><div class="mini">📚<strong id="lessonCount">0/100</strong><span class="tiny muted">lessons complete</span></div><div class="mini">🎯<strong id="accuracy">—</strong><span class="tiny muted">quiz accuracy</span></div></div>
-<div class="section-head"><h2>Your learning path</h2><span class="tiny muted">Beginner → confident</span></div><div class="path" id="coursePath"></div>
-<div class="panel"><h3>Important learning tip 💡</h3><p class="muted" style="margin-bottom:0">Iraqi Arabic is spoken differently across families and regions. Arabic spelling and Latin-letter pronunciation guides can vary. This course teaches common Iraqi forms, and you should also listen to real Iraqi speakers to learn their natural rhythm.</p></div>
+  <div class="hero">
+    <div class="eyebrow">YOUR IRAQI ARABIC ADVENTURE</div>
+    <h1>Understand Iraqi Arabic.</h1>
+    <p class="muted">Listen, guess the meaning, reveal the answer, and learn one step at a time.</p>
+    <div class="bar"><span id="progressBar"></span></div>
+    <p id="progressText" class="muted">0 of 100 lessons completed</p>
+    <button class="btn" onclick="startLesson(nextLesson())">Continue learning →</button>
+  </div>
+  <h2>Your course</h2>
+  <div id="coursePath" class="course-grid"></div>
+  <div class="panel">
+    <h3>How lessons work</h3>
+    <p class="muted">1. Listen without seeing the translation.</p>
+    <p class="muted">2. Guess what you heard.</p>
+    <p class="muted">3. Reveal the meaning when you're ready.</p>
+    <p class="muted">4. Listen to a longer example and practise.</p>
+  </div>
 </section>
-<section id="learn" class="screen"><button class="back" onclick="showScreen('home')">← Course map</button><div class="eyebrow" id="lessonUnit"></div><h1 id="lessonTitle">Lesson</h1><p class="muted" id="lessonIntro"></p><div class="lesson-top"><div class="lesson-progress"><span id="lessonBar"></span></div><span class="tiny muted" id="stepLabel"></span></div><div id="lessonContent" class="lesson-card"></div><div id="lessonFeedback" class="feedback" aria-live="polite"></div><button class="btn" id="lessonNext" onclick="advanceLesson()">Continue →</button><button class="btn alt" onclick="showScreen('home')">Exit lesson</button></section>
-<section id="vocab" class="screen"><div class="eyebrow">REVIEW</div><h1>Phrasebook 💬</h1><p class="muted">Review every word and phrase from the course. Audio depends on the voices installed in your browser; it may not sound like a native Iraqi speaker.</p><div class="tabs" id="vocabTabs"></div><div class="panel" id="vocabList"></div></section>
-<section id="progress" class="screen"><div class="eyebrow">YOUR JOURNEY</div><h1>Your progress 🏆</h1><div class="grid2"><div class="mini">⭐<strong id="pXP">0</strong><span class="tiny muted">total XP</span></div><div class="mini">📚<strong id="pLessons">0</strong><span class="tiny muted">lessons complete</span></div><div class="mini">✅<strong id="pCorrect">0</strong><span class="tiny muted">correct answers</span></div><div class="mini">🎯<strong id="pAccuracy">—</strong><span class="tiny muted">accuracy</span></div></div><div class="panel"><h3>Course completion</h3><div class="bar"><span id="pBar"></span></div><p class="muted" id="pText"></p><button class="btn" onclick="continueCourse()">Keep going →</button><button class="btn alt" onclick="resetProgress()">Reset course progress</button></div><p class="tiny muted">Progress is saved in this browser on this device. It won't automatically sync between devices.</p></section>
+
+<section id="learn" class="screen">
+  <button class="btn alt" onclick="showScreen('home')">← Course map</button>
+  <div class="eyebrow" id="unitLabel">LESSON 1</div>
+  <h1 id="lessonTitle">Listen first!</h1>
+  <p class="muted" id="lessonDescription"></p>
+  <div class="bar"><span id="lessonBar"></span></div>
+  <div class="panel" id="lessonCard"></div>
+  <p id="feedback" aria-live="polite"></p>
+  <button class="btn" id="nextBtn" onclick="nextStep()">Continue →</button>
+</section>
+
+<section id="phrases" class="screen">
+  <div class="eyebrow">REVIEW WITHOUT SPOILERS</div>
+  <h1>Phrasebook 💬</h1>
+  <p class="muted">Listen first. Open the answer only when you're ready.</p>
+  <div id="phraseList"></div>
+</section>
+
+<section id="coding" class="screen">
+  <div class="eyebrow">LEARN TO CODE</div>
+  <h1>JavaScript Lab 💻</h1>
+  <div class="panel">
+    <div class="row">
+      <h2 id="codeTitle">Lesson 1</h2>
+      <small id="codeCount">1 / 10</small>
+    </div>
+    <p id="codeDescription"></p>
+    <pre id="codeExample"></pre>
+    <label for="codeEditor">Edit the code and run it:</label>
+    <textarea id="codeEditor" spellcheck="false"></textarea>
+    <button class="btn" onclick="runCode()">▶ Run JavaScript</button>
+    <h3>Output</h3>
+    <pre id="codeOutput">Your output will appear here.</pre>
+    <div class="row">
+      <button class="btn alt" onclick="changeCode(-1)">← Previous</button>
+      <button class="btn alt" onclick="changeCode(1)">Next →</button>
+    </div>
+  </div>
+</section>
+
+<section id="progress" class="screen">
+  <h1>Your progress 🏆</h1>
+  <div class="panel">
+    <h2><span id="completedCount">0</span> / 100 lessons</h2>
+    <p>XP earned: <b id="progressXP">0</b></p>
+    <p class="muted">Your progress is saved on this device.</p>
+  </div>
+  <button class="btn alt" onclick="resetProgress()">Reset progress</button>
+</section>
 </main>
-<nav><button class="active" data-screen="home" onclick="showScreen('home')"><span>🗺️</span>Course</button><button data-screen="vocab" onclick="showScreen('vocab')"><span>💬</span>Phrasebook</button><button data-screen="progress" onclick="showScreen('progress')"><span>🏆</span>Progress</button></nav>
+
+<nav>
+  <button class="active" onclick="showScreen('home',this)"><span>🏠</span>Learn</button>
+  <button onclick="showScreen('phrases',this)"><span>💬</span>Phrases</button>
+  <button onclick="showScreen('coding',this)"><span>💻</span>Code JS</button>
+  <button onclick="showScreen('progress',this)"><span>🏆</span>Progress</button>
+</nav>
+
 <script>
-// Each entry: Arabic | pronunciation | meaning | example Arabic | example pronunciation | example meaning | tip
-const raw = [
-["هلا","hala","Hi / hey","هلا بيك","hala beek","Welcome / hi to you","Friendly and casual."],
-["شلونك؟","shlonak?","How are you? (to a male)","آني زين","aani zein","I'm good","To a female, shlonich is common; spelling varies."],
-["شلونچ؟","shlonich?","How are you? (to a female)","كلشي زين","kulshi zein","Everything is good","The letter چ represents a 'ch' sound."],
-["زين","zein","Good / fine","زين، الحمد لله","zein, alhamdulillah","Good, thank God","A common reply to how are you."],
-["إي","ee","Yes","إي، أريد","ee, areed","Yes, I want (it)","A common Iraqi yes."],
-["لا","la","No","لا، شكراً","la, shukran","No, thank you","Short and useful."],
-["شكراً","shukran","Thank you","شكراً هواية","shukran hwaya","Thank you very much","Hwaya means a lot / very much."],
-["عفواً","afwan","You're welcome / excuse me","عفواً، وين؟","afwan, wain?","Excuse me, where?","Meaning depends on context."],
-["آسف","aasif","Sorry (male speaker)","آسف، ما أفهم","aasif, ma afham","Sorry, I don't understand","A female speaker may say aasifa."],
-["شكو ماكو؟","shaku maku?","What's up?","ماكو شي","maku shi","Nothing's going on","Informal Iraqi expression."],
-["كلشي","kulshi","Everything","كلشي زين","kulshi zein","Everything is good","Very common in Iraqi speech."],
-["ماكو","maku","There isn't / there is no","ماكو مشكلة","maku mushkila","No problem","A useful Iraqi colloquial form."],
-["مشكلة","mushkila","Problem","ماكو مشكلة","maku mushkila","No problem","Also understood elsewhere in Arabic."],
-["آني","aani","I / me","آني هنا","aani hina","I'm here","Standard Arabic ana is also understood."],
-["إنتَ","inta","You (male)","إنتَ زين؟","inta zein?","Are you okay? (to a male)","Pronouns vary by gender."],
-["إنتِ","inti","You (female)","إنتِ زينة؟","inti zeina?","Are you okay? (to a female)","Listen for the ending."],
-["هو","huwwa","He","هو بالبيت","huwwa bil-bait","He's at home","Pronunciation varies."],
-["هي","hiyya","She","هي بالبيت","hiyya bil-bait","She's at home","Pronunciation varies."],
-["إحنا","ihna","We","إحنا هنا","ihna hina","We're here","Also written احنا."],
-["همّه","humma","They","همّه بالمدرسة","humma bil-madrasa","They're at school","Colloquial pronouns vary."],
-["اسمي","ismi","My name is","اسمي علي","ismi Ali","My name is Ali","Replace Ali with your own name."],
-["شنو؟","shinu?","What?","شنو هذا؟","shinu hatha?","What is this?","One of the most useful Iraqi question words."],
-["منو؟","mino?","Who?","منو هذا؟","mino hatha?","Who is this?","Common Iraqi form."],
-["وين؟","wain?","Where?","وين البيت؟","wain il-bait?","Where is the house?","Essential for asking directions."],
-["ليش؟","leish?","Why?","ليش لا؟","leish la?","Why not?","Useful in everyday questions."],
-["شلون؟","shloon?","How?","شلون أسوي؟","shloon asawwi?","How do I do it?","Can introduce a how-question."],
-["هسه","hassa","Now","أجي هسه","aji hassa","I'm coming now","A very common Iraqi word."],
-["باچر","bacher","Tomorrow","أشوفك باچر","ashoofak bacher","See you tomorrow (to a male)","The ch sound is written چ."],
-["اليوم","il-yom","Today","اليوم مشغول","il-yom mashghool","I'm busy today (male form)","The adjective may change with the speaker."],
-["أمس","ams","Yesterday","أمس رحت","ams riht","I went yesterday","A common time word."],
-["بعدين","ba'dein","Later / then","أحچي وياك بعدين","ahchi wayak ba'dein","I'll talk to you later (to a male)","Useful for sequencing."],
-["قبل","gabil","Before","قبل المدرسة","gabil il-madrasa","Before school","Pronunciation and spelling vary."],
-["بعد","ba'd","After / later","بعد شوي","ba'd shway","In a little while","Context gives the exact meaning."],
-["دائماً","dayiman","Always","دائماً أجي هنا","dayiman aji hina","I always come here","A more formal word; colloquial alternatives exist."],
-["مرات","marrat","Sometimes","مرات أروح","marrat arooh","Sometimes I go","Literally 'times' in this use."],
-["أريد","areed","I want","أريد مي","areed may","I want water","A core sentence pattern."],
-["ما أريد","ma areed","I don't want","ما أريد چاي","ma areed chai","I don't want tea","ما negates the verb here."],
-["أعرف","a'ref","I know","أعرف هذا","a'ref hatha","I know this","Useful when recognizing something."],
-["ما أعرف","ma a'ref","I don't know","ما أعرف وين","ma a'ref wain","I don't know where","Very useful for learners."],
-["أفهم","afham","I understand","أفهم شوي","afham shway","I understand a little","A basic verb."],
-["ما أفهم","ma afham","I don't understand","آسف، ما أفهم","aasif, ma afham","Sorry, I don't understand","Keep this phrase ready."],
-["أحچي","ahchi","I speak / talk","أحچي عربي شوي","ahchi arabi shway","I speak a little Arabic","Common Iraqi verb for talking."],
-["أسمع","asma'","I hear / listen","أسمعك","asma'ak","I hear you (to a male)","Useful for listening practice."],
-["أشوف","ashoof","I see","أشوفك باچر","ashoofak bacher","See you tomorrow (to a male)","Literally 'I see you'."],
-["أروح","arooh","I go / I'm going","أروح للبيت","arooh lil-bait","I go home / I'm going home","Context indicates present or habitual meaning."],
-["أجي","aji","I come / I'm coming","أجي هسه","aji hassa","I'm coming now","A useful everyday verb."],
-["آكل","aakul","I eat","أريد آكل","areed aakul","I want to eat","Want + verb is a useful pattern."],
-["أشرب","ashrab","I drink","أشرب مي","ashrab may","I drink water","A common verb."],
-["أنام","anam","I sleep","أريد أنام","areed anam","I want to sleep","Want + verb."],
-["أدرس","adrus","I study","أدرس بالبيت","adrus bil-bait","I study at home","Daily routine verb."],
-["أشتغل","ashtaghal","I work","أشتغل اليوم","ashtaghal il-yom","I work today","Colloquial pronunciation varies."],
-["أحب","aheb","I like / love","أحب الموسيقى","aheb il-musiqa","I like music","Meaning depends on context."],
-["ما أحب","ma aheb","I don't like","ما أحب القهوة","ma aheb il-qahwa","I don't like coffee","A negative preference."],
-["أحتاج","ahtaj","I need","أحتاج مساعدة","ahtaj musa'ada","I need help","A useful practical phrase."],
-["أكدر","agdar","I can / I am able to","أكدر أجي","agdar aji","I can come","Common Iraqi ability verb."],
-["ما أكدر","ma agdar","I can't","ما أكدر اليوم","ma agdar il-yom","I can't today","A common negative form."],
-["لازم","lazim","Must / have to","لازم أروح","lazim arooh","I have to go","Very useful for plans and obligations."],
-["ممكن؟","mumkin?","Is it possible? / may I?","ممكن سؤال؟","mumkin su'al?","Can I ask a question?","Polite and widely understood."],
-["تعال","ta'al","Come! (to a male)","تعال هنا","ta'al hina","Come here","Command form; changes by person."],
-["روح","rooh","Go! (to a male)","روح للبيت","rooh lil-bait","Go home","Informal command."],
-["انتظر","intathir","Wait","انتظر شوي","intathir shway","Wait a little","This form is more formal; colloquial forms vary."],
-["يلا","yalla","Come on / let's go","يلا نروح","yalla nrooh","Come on, let's go","Extremely common in conversation."],
-["تفضل","tfaddal","Here you go / please (to a male)","تفضل، هذا إلك","tfaddal, hatha ilak","Here you go, this is for you","Forms change depending on who is addressed."],
-["لو سمحت","law samaht","Please / excuse me","لو سمحت، أريد مي","law samaht, areed may","Please, I want water","Polite request phrase."],
-["مي","may","Water","أريد مي بارد","areed may barid","I want cold water","Adjective endings can vary."],
-["چاي","chai","Tea","أريد چاي","areed chai","I want tea","The letter چ is used for the ch sound."],
-["قهوة","qahwa","Coffee","أشرب قهوة","ashrab qahwa","I drink coffee","Pronunciation varies."],
-["خبز","khubz","Bread","أريد خبز","areed khubz","I want bread","Common word across Arabic."],
-["رز","ruz","Rice","أحب الرز","aheb ir-ruz","I like rice","A staple food word."],
-["دجاج","dijaj","Chicken","أريد دجاج","areed dijaj","I want chicken","Food vocabulary."],
-["لحم","lahm","Meat","ما آكل لحم","ma aakul lahm","I don't eat meat","Useful food word."],
-["تفاح","tuffah","Apples","أحب التفاح","aheb it-tuffah","I like apples","Plural or collective use depends on context."],
-["جوعان","joo'an","Hungry (masculine)","آني جوعان","aani joo'an","I'm hungry (male speaker)","A female speaker often says joo'ana."],
-["عطشان","atshan","Thirsty (masculine)","آني عطشان","aani atshan","I'm thirsty (male speaker)","A female speaker often says atshana."],
-["تعبان","ta'ban","Tired (masculine)","آني تعبان اليوم","aani ta'ban il-yom","I'm tired today (male speaker)","A female speaker often says ta'bana."],
-["فرحان","farhan","Happy (masculine)","آني فرحان","aani farhan","I'm happy (male speaker)","Forms change with gender."],
-["زعلان","za'lan","Upset (masculine)","ليش زعلان؟","leish za'lan?","Why are you upset? (to a male)","A common feeling word."],
-["خايف","khayif","Scared (masculine)","آني خايف","aani khayif","I'm scared (male speaker)","Forms vary by gender."],
-["كلش","kilish","Very / a lot","كلش زين","kilish zein","Very good","A distinctly useful Iraqi intensifier."],
-["هواية","hwaya","A lot / very much","أحبك هواية","ahebek hwaya","I like/love you a lot (to a male)","Can express quantity or intensity."],
-["شوي","shway","A little","أفهم شوي","afham shway","I understand a little","Great for describing your level."],
-["كبير","kbeer","Big (masculine)","بيت كبير","bait kbeer","A big house","Adjectives may change for feminine nouns."],
-["صغير","sghir","Small (masculine)","ولد صغير","walad sghir","A small boy","Common size adjective."],
-["حلو","hilw","Nice / sweet / pretty (masculine)","هذا حلو","hatha hilw","This is nice","Meaning depends on context."],
-["غالي","ghali","Expensive","هذا غالي","hatha ghali","This is expensive","Useful while shopping."],
-["رخيص","rkhees","Cheap / inexpensive","هذا رخيص","hatha rkhees","This is cheap","Useful while shopping."],
-["فلوس","flooss","Money","ما عندي فلوس","ma indi flooss","I don't have money","Colloquial everyday word."],
-["بكم؟","bikam?","How much?","بكم هذا؟","bikam hatha?","How much is this?","A practical shopping question."],
-["سوق","soog","Market","أروح للسوق","arooh lis-soog","I go to the market","Long vowels vary in transliteration."],
-["بيت","bait","House / home","هذا بيتي","hatha baiti","This is my house","A high-frequency noun."],
-["غرفة","ghurfa","Room","غرفتي صغيرة","ghurfati sghira","My room is small","The adjective agrees with the feminine noun."],
-["باب","bab","Door","الباب مفتوح","il-bab maftooh","The door is open","Useful household vocabulary."],
-["مفتاح","miftah","Key","وين المفتاح؟","wain il-miftah?","Where is the key?","Useful everyday object."],
-["مدرسة","madrasa","School","أروح للمدرسة","arooh lil-madrasa","I go to school","Useful for daily life."],
-["طالب","talib","Student (male)","آني طالب","aani talib","I'm a student (male)","A female student is taliba."],
-["معلم","mu'allim","Teacher (male)","المعلم هنا","il-mu'allim hina","The teacher is here","Common school word."],
-["كتاب","kitab","Book","هذا كتابي","hatha kitabi","This is my book","Possessive endings attach to nouns."],
-["قلم","qalam","Pen","أريد قلم","areed qalam","I want a pen","Basic classroom word."],
-["صديق","sadeeq","Male friend","هذا صديقي","hatha sadeeqi","This is my friend","For a female friend, use the appropriate feminine form."],
-["أمي","ummi","My mum","أمي بالبيت","ummi bil-bait","My mum is at home","A very common family word."],
-["أبوي","aboy","My dad","أبوي بالشغل","aboy bish-shughl","My dad is at work","Colloquial Iraqi form."],
-["أخوي","akhoy","My brother","أخوي هنا","akhoy hina","My brother is here","Colloquial Iraqi form."],
-["أختي","ukhti","My sister","أختي بالمدرسة","ukhti bil-madrasa","My sister is at school","Common family word."],
-["عائلة","a'ila","Family","عائلتي كبيرة","a'ilati kbira","My family is big","More formal; colloquial terms also exist."],
-["ولد","walad","Boy / son","هذا الولد","hatha il-walad","This boy","Context determines boy or son."],
-["بنية","biniya","Girl (Iraqi colloquial)","هاي بنية","hay biniya","This is a girl","Common Iraqi colloquial word."],
-["صباح الخير","sabah il-khair","Good morning","صباح الخير، شلونك؟","sabah il-khair, shlonak?","Good morning, how are you?","A greeting used widely."],
-["مساء الخير","masa il-khair","Good evening","مساء الخير","masa il-khair","Good evening","Useful greeting."],
-["مع السلامة","ma'a salama","Goodbye","يلا، مع السلامة","yalla, ma'a salama","Okay, goodbye","A standard farewell."],
-["إن شاء الله","inshallah","God willing","أشوفك باچر إن شاء الله","ashoofak bacher inshallah","I'll see you tomorrow, God willing","Common expression across Arabic."],
-["الحمد لله","alhamdulillah","Thank God / I'm well, thanks","زين، الحمد لله","zein, alhamdulillah","Good, thank God","Often used in replies."],
-["ما يصير","ma yaseer","That won't work / can't be done","هسه ما يصير","hassa ma yaseer","It won't work right now","Meaning depends on context."],
-["عادي","adi","It's okay / normal","عادي، ماكو مشكلة","adi, maku mushkila","It's okay, no problem","Common reassuring response."],
-["صدك؟","sidig?","Really? / for real?","صدك تحچي؟","sidig tahchi?","Are you serious?","Informal Iraqi expression."],
-["خوش","khosh","Good / nice","خوش فكرة","khosh fikra","Good idea","Colloquial compliment."],
-["فد شي","fid shay","Something / a thing (colloquial)","أريد فد شي آكله","areed fid shay akula","I want something to eat","Colloquial phrase; usage varies."],
-["بعدني","ba'dni","Still / I haven't yet (contextual)","بعدني أتعلم","ba'dni ata'allam","I'm still learning","A useful conversational expression."],
-["دا أتعلم","da ata'allam","I'm learning (right now)","دا أتعلم عراقي","da ata'allam Iraqi","I'm learning Iraqi Arabic","دا can mark an ongoing action in Iraqi speech."],
-["راح","rah","Will / going to","راح أجي باچر","rah aji bacher","I'll come tomorrow","Common future marker."],
-["چنت","chint","I was","چنت بالبيت","chint bil-bait","I was at home","Past form; spelling and pronunciation vary."],
-["رحت","riht","I went","رحت للسوق","riht lis-soog","I went to the market","Common past-tense form."],
-["شفت","shift","I saw","شفت صديقي","shift sadeeqi","I saw my friend","Common past-tense form."],
-["گلت","gilit","I said / I told","گلت إلك","gilit ilak","I told you (to a male)","گ represents a g sound in many Iraqi spellings."],
-["أمسح","amsah","I wipe / erase","أمسح السبورة","amsah is-saboorah","I erase the board","Verb meaning depends on context."],
-["أنتظر","antathir","I wait","أنتظرك هنا","antathirak hina","I'll wait for you here (to a male)","Pronunciation varies in speech."],
-["أختار","akhtar","I choose","أختار هذا","akhtar hatha","I choose this","Useful decision-making verb."],
-["أجرب","ajarrib","I try / test","أجرب مرة ثانية","ajarrib marra thaniya","I'll try again","Useful when learning something new."],
-["مرة ثانية","marra thaniya","Again / one more time","عيدها مرة ثانية","e'idha marra thaniya","Repeat it one more time","Useful for asking for repetition."],
-["بسرعة","bisur'a","Quickly","احچي ببطء، مو بسرعة","ihchi bibut', mu bisur'a","Speak slowly, not quickly","A helpful learner phrase."],
-["ببطء","bibut'","Slowly","احچي ببطء","ihchi bibut'","Speak slowly","Ask people to slow down."],
-["ما فهمت","ma fihimt","I didn't understand","آسف، ما فهمت","aasif, ma fihimt","Sorry, I didn't understand","Past-tense phrase."],
-["عيدها","e'idha","Repeat it","ممكن تعيدها؟","mumkin ti'eedha?","Can you repeat it?","Colloquial pronunciation varies."],
-["شنو تقصد؟","shinu tigṣid?","What do you mean?","شنو تقصد بهذا؟","shinu tigṣid bihatha?","What do you mean by this?","Useful when confused."],
-["على كيفك","ala keefak","As you like / take your time","على كيفك","ala keefak","As you like","Informal phrase; meaning depends on tone."],
-["ما عليه","ma alayh","Never mind / it's okay","ما عليه، تصير","ma alayh, tseer","It's okay, it happens","Colloquial reassurance."],
-["تصير","tseer","It happens / it can happen","عادي، تصير","adi, tseer","It's okay, it happens","Meaning depends on context."],
-["دقيقة","daqeeqa","A minute","انتظر دقيقة","intathir daqeeqa","Wait a minute","Useful time expression."],
-["هواي","hway","A lot / many","عندي شغل هواي","indi shughl hway","I have a lot of work","Spelling and pronunciation vary; overlaps with هواية."],
-["شغل","shughl","Work / job","عندي شغل","indi shughl","I have work","A common noun."],
-["مشغول","mashghool","Busy (masculine)","آني مشغول هسه","aani mashghool hassa","I'm busy now (male speaker)","A female speaker often uses mashghoola."],
-["فاضي","fadhi","Free / available (masculine)","إنت فاضي؟","inta fadhi?","Are you free? (to a male)","A female form differs."],
-["مو","mu","Not / isn't (Iraqi negation)","هذا مو إلي","hatha mu ili","This isn't mine","Common Iraqi negation before nouns/adjectives."],
-["إلي","ili","Mine / for me","هذا إلي","hatha ili","This is mine","Meaning depends on context."],
-["ويا","waya","With","أجي وياك","aji wayak","I'll come with you (to a male)","A key colloquial preposition."],
-["بدون","bidoon","Without","چاي بدون سكر","chai bidoon sukkar","Tea without sugar","Useful when ordering."],
-["سكر","sukkar","Sugar","ما أريد سكر","ma areed sukkar","I don't want sugar","Food and drink word."],
-["ملح","milh","Salt","وين الملح؟","wain il-milh?","Where is the salt?","Useful kitchen word."],
-["مطعم","mat'am","Restaurant","وين المطعم؟","wain il-mat'am?","Where is the restaurant?","Useful while travelling."],
-["شارع","shari'","Street","هذا الشارع طويل","hatha ish-shari' taweel","This street is long","Useful location word."],
-["سيارة","sayyara","Car","السيارة بعيدة","is-sayyara b'eeda","The car is far away","Adjective agreement matters."],
-["باص","bas","Bus","أروح بالباص","arooh bil-bas","I go by bus","Everyday transport word."],
-["قريب","qareeb","Near (masculine)","المدرسة قريبة","il-madrasa qareeba","The school is nearby","Feminine form commonly qareeba."],
-["بعيد","b'eed","Far (masculine)","السوق بعيد","is-soog b'eed","The market is far","Adjective form can change."],
-["يمين","yameen","Right","روح يمين","rooh yameen","Go right","Direction word."],
-["يسار","yasar","Left","روح يسار","rooh yasar","Go left","Direction word."],
-["جوه","jowa","Inside / downstairs (contextual)","هو جوه","huwwa jowa","He's inside","Colloquial usage varies."],
-["بره","barra","Outside","أنتظرك بره","antathirak barra","I'll wait outside","Common spoken word."],
-["فوك","foog","Above / upstairs","الغرفة فوك","il-ghurfa foog","The room is upstairs","Colloquial Iraqi location word."],
-["جوه البيت","jowa il-bait","Inside the house","آني جوه البيت","aani jowa il-bait","I'm inside the house","Useful phrase chunk."],
-["أول شي","awwal shay","First thing / first","أول شي، اسمع","awwal shay, isma'","First, listen","A sequencing phrase."],
-["بعدين","ba'dein","Then / later","أول شي أدرس، بعدين ألعب","awwal shay adrus, ba'dein al'ab","First I study, then I play","Connects actions."],
-["لأن","li'an","Because","ما أجي لأن مشغول","ma aji li'an mashghool","I'm not coming because I'm busy","A basic reason connector."],
-["بس","bas","But / only / just","أريد أجي، بس مشغول","areed aji, bas mashghool","I want to come, but I'm busy","Meaning depends on context."],
-["إذا","itha","If","إذا عندك وقت","itha indik wagt","If you have time","Introduces a condition."],
-["لما","limma","When","لما أرجع","limma arja'","When I come back","Introduces a time clause."],
-["أعتقد","a'taqid","I think / I believe","أعتقد هذا صحيح","a'taqid hatha saheeh","I think this is correct","A slightly more formal word."],
-["يمكن","yimkin","Maybe / perhaps","يمكن أجي باچر","yimkin aji bacher","Maybe I'll come tomorrow","Common uncertainty word."],
-["أكيد","akeed","Definitely / sure","أكيد أساعدك","akeed asa'idak","I'll definitely help you","Common agreement."],
-["بالضبط","biddhabt","Exactly","إي، بالضبط","ee, biddhabt","Yes, exactly","Useful confirmation."],
-["تقريباً","taqreeban","Approximately / almost","تقريباً خلصت","taqreeban khilast","I almost finished","More formal but understood."],
-["خلّصت","khallast","I finished","خلّصت الواجب","khallast il-wajib","I finished the homework","Past-tense form."],
-["واجب","wajib","Homework / duty","عندي واجب","indi wajib","I have homework","Common school word."],
-["امتحان","imtihaan","Exam","عندي امتحان باچر","indi imtihaan bacher","I have an exam tomorrow","Useful school word."],
-["نجحت","najahat","I passed / succeeded","نجحت بالامتحان","najahat bil-imtihaan","I passed the exam","Past-tense form; exact pronunciation varies."],
-["صعب","sa'b","Difficult","هذا صعب شوي","hatha sa'b shway","This is a little difficult","Useful when describing tasks."],
-["سهل","sahl","Easy","الدرس سهل","id-dars sahl","The lesson is easy","A useful opposite of difficult."],
-["أحسن","ahsan","Better / best","هسه أحسن","hassa ahsan","Better now","Common comparative."],
-["أسوأ","aswa'","Worse","هذا أسوأ","hatha aswa'","This is worse","A useful comparison word."],
-["أسرع","asra'","Faster","احچي أسرع","ihchi asra'","Speak faster","Comparative form."],
-["أبطأ","abta'","Slower","احچي أبطأ","ihchi abta'","Speak slower","Useful listening request."],
-["أول مرة","awwal marra","First time","هاي أول مرة","hay awwal marra","This is the first time","Useful conversation phrase."],
-["من زمان","min zaman","For a long time / ages","ما شفتك من زمان","ma shiftak min zaman","I haven't seen you in ages","Common conversational expression."],
-["اشتقتلك","ishtagtillak","I missed you (to a male)","والله اشتقتلك","wallah ishtagtillak","I really missed you","Warm colloquial phrase; endings vary."],
-["الله يساعدك","Allah yisa'idak","May God help you (to a male)","الله يساعدك بالشغل","Allah yisa'idak bish-shughl","May God help you with work","Common supportive expression."],
-["تدلل","tidallal","Sure / at your service","تدلل، شتريد؟","tidallal, shtreed?","Of course, what do you want?","Friendly Iraqi expression; context matters."],
-["شكد؟","shgad?","How much / how many?","شكد السعر؟","shgad is-si'r?","How much is the price?","Very common Iraqi question."],
-["هواية غالي","hwaya ghali","Very expensive","هذا هواية غالي","hatha hwaya ghali","This is very expensive","Colloquial phrase; adjective agreement may vary."],
-["شنو رأيك؟","shinu rayak?","What do you think? (to a male)","شنو رأيك بهذا؟","shinu rayak bihatha?","What do you think of this?","A useful opinion question."],
-["برأيي","bira'yi","In my opinion","برأيي هذا أحسن","bira'yi hatha ahsan","In my opinion, this is better","Useful for giving an opinion."],
-["أتفق وياك","atifiq wayak","I agree with you (to a male)","إي، أتفق وياك","ee, atifiq wayak","Yes, I agree with you","The ending changes with the person addressed."],
-["ما أتفق","ma atifiq","I don't agree","آسف، ما أتفق","aasif, ma atifiq","Sorry, I don't agree","Polite disagreement."],
-["على الأغلب","ala al-aghlab","Probably / most likely","على الأغلب أجي","ala al-aghlab aji","I'll probably come","Useful for uncertain plans."],
-["مهما كان","mahما kan","Whatever happens","مهما كان، أحاول","mahma kan, ahawil","Whatever happens, I'll try","Expression is more advanced; forms vary."],
-["من وجهة نظري","min wijhat nazari","From my point of view","من وجهة نظري، هذا صحيح","min wijhat nazari, hatha saheeh","From my point of view, this is correct","More formal expression useful for advanced practice."]
+/* IRAQI ARABIC COURSE */
+const words = [
+["هلا","hala","Hi!","هلا، شلونك؟","Hala, shlonak?","Hi, how are you?","A friendly greeting."],
+["شلونك؟","shlonak?","How are you? (to a male)","هلا، شلونك؟","Hala, shlonak?","Hi, how are you?","To a female, people often say shlonich."],
+["زين","zain","Good / fine","آني زين، شكراً","Ani zain, shukran","I'm fine, thanks.","A common Iraqi response."],
+["شكراً","shukran","Thank you","شكراً هواية","Shukran hawaya","Thank you very much.","Hawaya means a lot / very much."],
+["إي","ee","Yes","إي، أكيد","Ee, akeed","Yes, of course.","A common informal yes."],
+["لا","la","No","لا، شكراً","La, shukran","No, thank you.","A simple, useful answer."],
+["يلا","yalla","Come on / let's go","يلا، خل نروح","Yalla, khal nrooH","Come on, let's go.","Meaning changes with context."],
+["شنو؟","shنو?","What?","شنو هذا؟","Shنو hatha?","What is this?","A very common Iraqi question."],
+["وين؟","wain?","Where?","وين البيت؟","Wain il-bait?","Where is the house?","Useful when asking for places."],
+["ليش؟","leish?","Why?","ليش تأخرت؟","Leish ta'akhart?","Why were you late?","Used to ask for a reason."],
+["منو؟","mino?","Who?","منو هذا؟","Mino hatha?","Who is this?","Used to ask who someone is."],
+["أني","ani","I / me","أني من العراق","Ani min il-Iraq","I'm from Iraq.","Also written آني."],
+["إنتَ","inta","You (to a male)","إنتَ شلونك؟","Inta shlonak?","How are you?","Spoken forms vary."],
+["إنتِ","inti","You (to a female)","إنتِ شلونچ؟","Inti shlonich?","How are you?","The final sound is often written ch."],
+["هو","huwa","He","هو بالبيت","Huwa bil-bait","He is at home.","Pronunciation varies in everyday speech."],
+["هي","hiya","She","هي بالبيت","Hiya bil-bait","She is at home.","A useful pronoun."],
+["هذا","hatha","This (masculine)","شنو هذا؟","Shنو hatha?","What is this?","Used with masculine nouns."],
+["هاي","hay","This (feminine)","هاي أختي","Hay ukhti","This is my sister.","Common Iraqi demonstrative."],
+["ما أعرف","ma a'rif","I don't know","آسف، ما أعرف","Asif, ma a'rif","Sorry, I don't know.","Very useful in conversation."],
+["ما أفهم","ma afham","I don't understand","آسف، ما أفهم","Asif, ma afham","Sorry, I don't understand.","A phrase worth remembering."],
+["أريد","areed","I want","أريد مي","Areed mai","I want water.","A core Iraqi verb."],
+["أحب","aHib","I like / love","أحب هالأغنية","Ahib hal-ughniya","I like this song.","Meaning depends on context."],
+["مي","mai","Water","أريد مي، لو سمحت","Areed mai, law samaHt","Water, please.","Everyday Iraqi word for water."],
+["أكل","akal","Food / eat","أريد أكل","Areed akal","I want food.","Context tells you the meaning."],
+["بيت","bait","House / home","هذا بيتي","Hatha baiti","This is my house.","A common noun."],
+["صديق","sadeeq","Friend (male)","هو صديقي","Huwa sadeeqi","He is my friend.","Colloquial pronunciation may vary."],
+["هواية","hawaya","A lot / very much","أحبك هواية","Ahibak hawaya","I like you a lot.","Often used to mean 'a lot'."],
+["هسه","hassa","Now","أجي هسه","Aji hassa","I'll come now.","Very common Iraqi word."],
+["باجر","bacher","Tomorrow","أشوفك باجر","Ashofak bacher","I'll see you tomorrow.","Common Iraqi form."],
+["اليوم","il-yom","Today","اليوم عندي شغل","Il-yom indi shughul","I have work today.","Used across Arabic varieties."],
+["أمس","ams","Yesterday","أمس كنت بالبيت","Ams kunt bil-bait","I was at home yesterday.","Past-tense forms vary."],
+["بسرعة","bisur'a","Quickly","تعال بسرعة","Ta'al bisur'a","Come quickly.","Useful in everyday conversation."],
+["شوية","shwaya","A little","انتظر شوية","Intathir shwaya","Wait a little.","Also used for 'a bit'."],
+["هواية زين","hawaya zain","Very good","هذا هواية زين","Hatha hawaya zain","This is very good.","Informal Iraqi emphasis."],
+["خوش","khosh","Nice / good","خوش فكرة","Khosh fikra","Nice idea.","A recognisably Iraqi expression."],
+["تعبان","ta'ban","Tired (male)","آني تعبان اليوم","Ani ta'ban il-yom","I'm tired today.","Female form is often ta'bana."],
+["جوعان","joo'an","Hungry (male)","آني جوعان","Ani joo'an","I'm hungry.","Female form is often joo'ana."],
+["عطشان","atshan","Thirsty (male)","آني عطشان","Ani atshan","I'm thirsty.","Female form is often atshana."],
+["تعال","ta'al","Come (to a male)","تعال هنا","Ta'al hina","Come here.","A direct everyday command."],
+["روح","rooH","Go (to a male)","روح للبيت","RooH lil-bait","Go home.","Spoken pronunciation varies."],
+["انتظر","intathir","Wait","انتظر شوية","Intathir shwaya","Wait a little.","A useful instruction."],
+["ممكن؟","mumkin?","Can I? / Is it possible?","ممكن سؤال؟","Mumkin su'al?","Can I ask a question?","A polite way to ask."],
+["لو سمحت","law samaHt","Please / excuse me","مي، لو سمحت","Mai, law samaHt","Water, please.","Used when asking for something."],
+["عفواً","afwan","You're welcome / excuse me","عفواً، ماكو مشكلة","Afwan, mako mushkila","You're welcome, no problem.","Meaning depends on the situation."],
+["ماكو","mako","There isn't / there aren't","ماكو مشكلة","Mako mushkila","No problem.","Very common Iraqi expression."],
+["أكو","ako","There is / there are","أكو مي؟","Ako mai?","Is there water?","Opposite of mako in many contexts."],
+["كلش","killish","Very / really","كلش حلو","Killish Hilw","Really nice.","Common Iraqi intensifier."],
+["حلو","Hilw","Nice / sweet","هذا حلو","Hatha Hilw","This is nice.","Can describe taste or appearance."],
+["باوع","bawich","Look!","باوع هنا","Bawich hina","Look here.","Regional pronunciation varies."],
+["ماكو شي","mako shay","It's nothing / no problem","لا تخاف، ماكو شي","La tkhaf, mako shay","Don't worry, it's nothing.","A useful reassurance."]
 ];
-// Make exactly 100 sequential lessons from a 200+ item progression bank. Each lesson introduces a new entry,
-// then tests meaning, then uses it in a sentence. Later stages emphasize longer example sentences.
+
 const stages=[
-{title:"First meanings",icon:"👋",desc:"Understand common words and phrases"},
-{title:"People & questions",icon:"🧑‍🤝‍🧑",desc:"Pronouns, names and everyday questions"},
-{title:"Daily routines",icon:"⏰",desc:"Time words and simple actions"},
-{title:"Useful sentences",icon:"🧩",desc:"Build useful sentence patterns"},
-{title:"Food & shopping",icon:"☕",desc:"Order things and talk about prices"},
-{title:"Family & school",icon:"🏠",desc:"Talk about your world"},
-{title:"Feelings & opinions",icon:"💭",desc:"Describe and react"},
-{title:"Verbs & plans",icon:"🏃",desc:"Talk about actions and future plans"},
-{title:"Natural Iraqi",icon:"🇮🇶",desc:"Colloquial expressions and longer replies"},
-{title:"Conversation challenge",icon:"🗣️",desc:"Combine what you know in real exchanges"}
+"Greetings","Basic questions","People and pronouns","Everyday phrases",
+"Food and drink","Time and places","Describing things","Requests and directions",
+"Longer sentences","Conversation practice"
 ];
-const course = Array.from({length:100},(_,i)=> {
- const stage=Math.floor(i/10), slot=i%10, word=raw[i];
- return {id:i,title:lessonTitle(stage,slot,word),stage,word,intro:lessonIntro(stage,slot),steps:makeSteps(i,word)};
+
+const lessons = Array.from({length:100},(_,i)=>{
+  const stage=Math.floor(i/10);
+  const word=words[i%words.length];
+  return {id:i+1,stage,title:`${stages[stage]} ${i%10+1}`,word};
 });
-function lessonTitle(stage,slot,w){const titles=[
-["Hello & greetings","How are you?","Good, bad & okay","Yes and no","Thank you & sorry","What's up?","Everything & nothing","I and you","Names & introductions","Review: first words"],
-["What?","Who?","Where?","Why?","How?","Now and tomorrow","Today and yesterday","Before and after","Always and sometimes","Review: asking questions"],
-["I want","I don't want","I know","I don't know","I understand","I speak","I hear and listen","I see","Going places","Review: everyday verbs"],
-["Coming and going","Eating and drinking","Sleep and study","Work and hobbies","Likes and dislikes","Needs and abilities","Can and can't","Must and need to","Requests and commands","Review: build sentences"],
-["Water and tea","Coffee and food","Hungry and thirsty","Tastes & amounts","How much?","Prices","Money and markets","Ordering politely","Food preferences","Review: at the café"],
-["Home and rooms","Doors and objects","School","Books and pens","Friends","Parents","Siblings","Family descriptions","People & places","Review: my world"],
-["Happy and tired","Upset and scared","Very and a little","Big and small","Nice and expensive","Busy and free","Not / isn't","With and without","Reassurance","Review: reactions"],
-["Past actions","Future plans","Wait and repeat","Explain yourself","Because and but","If and when","Maybe and definitely","Finish & succeed","Comparisons","Review: plans"],
-["What do you mean?","Say it again","Slow down","I think","Exactly / probably","Agree and disagree","Long time no see","Friendly Iraqi phrases","Helpful expressions","Review: natural speech"],
-["Tell a short story","Describe a day","Make a plan","Ask for help","At a shop","At school","Meet a friend","Explain a problem","Long conversation","Final conversation"]
-]; return titles[stage][slot]||w[2]}
-function lessonIntro(stage,slot){return stage<2?"Learn the meaning first, then connect it to a short example.":stage<5?"Learn the word, notice the sentence pattern, and practise using it.":stage<8?"Use context to understand the phrase and build a longer reply.":"Practise understanding the whole expression instead of translating every word separately."}
-function makeSteps(i,w){const stage=Math.floor(i/10);return [
-{type:"teach",ar:w[0],latin:w[1],en:w[2],note:w[6],example:[w[3],w[4],w[5]]},
-{type:"question",q:`What does “${w[0]}” mean?`,opts:optionsFor(i,w[2]),a:0,why:`“${w[0]}” means ${w[2]}.`},
-{type:"example",title:"Understand it in context",ar:w[3],latin:w[4],en:w[5],note:stage<3?"Read the whole example aloud, then focus on the new word.":stage<7?"Notice how the new word works with the other words in this sentence.":"Try to understand the full phrase before reading the translation."},
-{type:"question",q:`In “${w[3]}”, what is the full sentence's meaning?`,opts:[w[5],wrongMeaning(i),anotherWrong(i)],a:0,why:`The example “${w[3]}” means “${w[5]}”.`},
-{type:"recap",title:"Say it without looking",ar:w[0],latin:w[1],en:w[2],example:w[3],exampleLatin:w[4],exampleEn:w[5],note:stage<3?"Say the word and example out loud three times.":stage<7?"Try making one new sentence with this word.":"Challenge: say the Arabic sentence first, then explain its meaning in English."}
-] }
-function optionsFor(i,correct){let wrong=[raw[(i+17)%raw.length][2],raw[(i+43)%raw.length][2],raw[(i+71)%raw.length][2]].filter(x=>x!==correct);return [correct,...wrong.slice(0,2)]}
-function wrongMeaning(i){return raw[(i+31)%raw.length][5]}
-function anotherWrong(i){return raw[(i+57)%raw.length][5]}
-const STORE='iraqiQuest100v1';let state={xp:0,done:[],correct:0,attempts:0};try{state={...state,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch(e){}
-let current={index:0,step:0,locked:false};let vocabFilter='All';
-function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch(e){}updateStats()}
-function updateStats(){let done=state.done.length;document.getElementById('xp').textContent=state.xp;document.getElementById('streak').textContent=done?1:0;document.getElementById('lessonCount').textContent=`${done}/100`;document.getElementById('overallBar').style.width=done+'%';document.getElementById('overallText').textContent=`${done} of 100 lessons complete`;document.getElementById('accuracy').textContent=state.attempts?Math.round(state.correct/state.attempts*100)+'%':'—';document.getElementById('pXP').textContent=state.xp;document.getElementById('pLessons').textContent=done;document.getElementById('pCorrect').textContent=state.correct;document.getElementById('pAccuracy').textContent=state.attempts?Math.round(state.correct/state.attempts*100)+'%':'—';document.getElementById('pBar').style.width=done+'%';document.getElementById('pText').textContent=done===100?'You completed all 100 lessons! Keep reviewing and listening to native speakers.':`${done} of 100 lessons complete. ${100-done} lessons left.`}
-function showScreen(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===id));if(id==='home')renderPath();if(id==='vocab')renderVocab();if(id==='progress')updateStats();window.scrollTo({top:0,behavior:'smooth'})}
-function renderPath(){let root=document.getElementById('coursePath');root.replaceChildren();stages.forEach((s,si)=>{let completed=course.slice(si*10,si*10+10).filter(l=>state.done.includes(l.id)).length;let head=document.createElement('div');head.className='unit';head.innerHTML=`<div class="unit-icon">${s.icon}</div><div><div class="unit-title">Unit ${si+1}: ${s.title}</div><div class="unit-desc">${s.desc}</div><div class="unit-meta">${completed}/10 LESSONS COMPLETE</div></div>`;root.appendChild(head);course.slice(si*10,si*10+10).forEach((l)=>{let done=state.done.includes(l.id),unlocked=l.id===0||state.done.includes(l.id-1)||done;let card=document.createElement('div');card.className='unit'+(!unlocked?' locked':'');card.innerHTML=`<div class="unit-icon">${done?'✅':String(l.id+1).padStart(2,'0')}</div><div><div class="unit-title">${l.id+1}. ${l.title}</div><div class="unit-desc">${l.intro}</div><div class="unit-meta">${done?'COMPLETED · REVIEW ANYTIME':'5 STEPS · ABOUT 5 MIN'}</div></div><button class="btn ${done?'alt':''}" ${!unlocked?'disabled':''}>${done?'Review lesson':unlocked?'Start lesson':'Complete previous lesson first'}</button>`;card.querySelector('button').onclick=()=>startLesson(l.id);root.appendChild(card)})})}
-function continueCourse(){let l=course.find(x=>!state.done.includes(x.id))||course[99];startLesson(l.id)}
-function startLesson(index){current={index,step:0,locked:false,earned:false};showScreen('learn');renderStep()}
-function renderStep(){let l=course[current.index],s=l.steps[current.step];document.getElementById('lessonUnit').textContent=`UNIT ${l.stage+1} OF 10 · LESSON ${l.id+1} OF 100`;document.getElementById('lessonTitle').textContent=l.title;document.getElementById('lessonIntro').textContent=l.intro;document.getElementById('lessonBar').style.width=((current.step+1)/l.steps.length*100)+'%';document.getElementById('stepLabel').textContent=`${current.step+1}/5`;document.getElementById('lessonFeedback').textContent='';current.locked=false;let box=document.getElementById('lessonContent');box.replaceChildren();let next=document.getElementById('lessonNext');next.disabled=false;next.textContent=current.step===4?'Finish lesson 🏆':'Continue →';
-if(s.type==='teach'){box.innerHTML=`<div class="eyebrow">NEW WORD OR PHRASE</div><div class="arabic">${s.ar}</div><div class="translit">${s.latin}</div><div class="translation">${s.en}</div><div class="note">${s.note}</div><div class="panel"><div class="tiny muted">EXAMPLE IN A SENTENCE</div><div class="arabic">${s.example[0]}</div><div class="translit">${s.example[1]}</div><div class="translation">${s.example[2]}</div></div><button class="btn alt" onclick="speak(${JSON.stringify(s.ar)})">🔊 Hear word</button><button class="btn alt" onclick="speak(${JSON.stringify(s.example[0])})">🔊 Hear example</button>`}
-else if(s.type==='question'){box.innerHTML=`<div class="eyebrow">MEANING CHECK</div><h2 style="margin-top:15px">${s.q}</h2><div id="choices"></div>`;let root=box.querySelector('#choices');s.opts.forEach((o,j)=>{let b=document.createElement('button');b.className='choice';b.textContent=o;b.onclick=()=>answer(j,b);root.appendChild(b)});next.disabled=true}
-else if(s.type==='example'){box.innerHTML=`<div class="eyebrow">WORD IN CONTEXT</div><h2 style="margin-top:12px">${s.title}</h2><div class="arabic">${s.ar}</div><div class="translit">${s.latin}</div><div class="translation">${s.en}</div><div class="note">${s.note}</div><button class="btn alt" onclick="speak(${JSON.stringify(s.ar)})">🔊 Hear sentence</button>`}
-else{box.innerHTML=`<div class="eyebrow">RECAP</div><h2 style="margin-top:12px">${s.title}</h2><div class="arabic">${s.ar}</div><div class="translit">${s.latin}</div><div class="translation">${s.en}</div><div class="panel"><div class="tiny muted">EXAMPLE</div><div class="arabic">${s.example}</div><div class="translit">${s.exampleLatin}</div><div class="translation">${s.exampleEn}</div></div><div class="note">${s.note}</div><button class="btn alt" onclick="speak(${JSON.stringify(s.example)})">🔊 Hear example</button>`}}
-function answer(i,btn){if(current.locked)return;current.locked=true;let s=course[current.index].steps[current.step];let buttons=document.querySelectorAll('#choices button');buttons.forEach((b,j)=>{b.disabled=true;if(b.textContent===s.opts[0]){} });/* correct answer index is tracked by matching first choice after shuffle? */let correctText=s.opts[0];let correct=i===0;if(correct){state.correct++;state.xp+=10;document.getElementById('lessonFeedback').textContent='Correct! Great job 🎉'}else{btn.classList.add('bad');document.getElementById('lessonFeedback').textContent='Not quite. '+s.why}buttons.forEach(b=>{if(b.textContent===correctText)b.classList.add('good')});state.attempts++;save();document.getElementById('lessonNext').disabled=false}
-function advanceLesson(){let l=course[current.index];if(current.step<4){current.step++;renderStep();return}if(!state.done.includes(l.id)){state.done.push(l.id);state.xp+=20;save()}let box=document.getElementById('lessonContent');box.innerHTML=`<div class="finish"><div class="big">🎉</div><h2>Lesson complete!</h2><p class="muted">You finished “${l.title}”. Try saying the new word and its example without looking at the English.</p><h3>+20 XP</h3></div>`;document.getElementById('lessonFeedback').textContent='';document.getElementById('lessonBar').style.width='100%';document.getElementById('stepLabel').textContent='Done!';let next=document.getElementById('lessonNext');next.textContent=current.index<99?'Next lesson →':'Finish course 🎓';next.onclick=()=>{next.onclick=advanceLesson;if(current.index<99)startLesson(current.index+1);else showScreen('home')};renderPath()}
-function speak(t){if(!('speechSynthesis'in window)){alert('Speech audio is not supported in this browser.');return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='ar-IQ';u.rate=.82;let vs=speechSynthesis.getVoices();u.voice=vs.find(v=>v.lang.toLowerCase()==='ar-iq')||vs.find(v=>v.lang.toLowerCase().startsWith('ar'))||null;speechSynthesis.speak(u)}
-function renderVocab(){let tabs=document.getElementById('vocabTabs');tabs.replaceChildren();['All',...stages.map(s=>s.title)].forEach(name=>{let b=document.createElement('button');b.className='tab'+(vocabFilter===name?' active':'');b.textContent=name;b.onclick=()=>{vocabFilter=name;renderVocab()};tabs.appendChild(b)});let list=document.getElementById('vocabList');list.replaceChildren();course.forEach(l=>{if(vocabFilter!=='All'&&stages[l.stage].title!==vocabFilter)return;let w=l.word,row=document.createElement('div');row.className='phrase-row';row.innerHTML=`<div class="phrase-info"><div class="arabic">${w[0]}</div><div class="translit">${w[1]}</div><div>${w[2]}</div><div class="tiny muted">${w[3]} — ${w[5]}</div></div><button class="sound" aria-label="Hear phrase">🔊</button>`;row.querySelector('button').onclick=()=>speak(w[0]);list.appendChild(row)})}
-function resetProgress(){if(!confirm('Reset all saved progress and XP on this device?'))return;state={xp:0,done:[],correct:0,attempts:0};save();renderPath()}
-renderPath();updateStats();
+
+let state={xp:0,done:[],correct:0,attempts:0};
+try{
+  const saved=JSON.parse(localStorage.getItem("iraqiQuestSave")||"null");
+  if(saved) state={...state,...saved};
+}catch(e){}
+let current={index:0,step:0,locked:false};
+let speechToken=0;
+
+function save(){
+  try{localStorage.setItem("iraqiQuestSave",JSON.stringify(state))}catch(e){}
+  updateStats();
+}
+function updateStats(){
+  document.getElementById("xp").textContent=state.xp;
+  document.getElementById("progressXP").textContent=state.xp;
+  document.getElementById("completedCount").textContent=state.done.length;
+  document.getElementById("progressBar").style.width=(state.done.length)+"%";
+  document.getElementById("progressText").textContent=state.done.length+" of 100 lessons completed";
+}
+function nextLesson(){
+  for(let i=0;i<100;i++) if(!state.done.includes(i+1)) return i;
+  return 99;
+}
+function showScreen(id,button){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+  if(button)button.classList.add("active");
+  if(id==="phrases")renderPhrases();
+  if(id==="home")renderPath();
+  if(id==="progress")updateStats();
+}
+function renderPath(){
+  const box=document.getElementById("coursePath");
+  box.replaceChildren();
+  lessons.forEach((l,i)=>{
+    if(i%10!==0)return;
+    const completed=state.done.filter(n=>n>=i+1&&n<=i+10).length;
+    const item=document.createElement("div");
+    item.className="lesson-item";
+    item.innerHTML=`<b>${i/10+1}. ${stages[i/10]}</b><p class="muted">${completed}/10 lessons complete</p><button class="btn alt">Start unit →</button>`;
+    item.querySelector("button").onclick=()=>startLesson(i);
+    box.appendChild(item);
+  });
+}
+function startLesson(index){
+  current={index,step:0,locked:false};
+  const l=lessons[index];
+  document.getElementById("lessonTitle").textContent=l.title;
+  document.getElementById("unitLabel").textContent=`LESSON ${l.id} OF 100`;
+  document.getElementById("lessonDescription").textContent=`Unit: ${stages[l.stage]}. Listen first and try to guess.`;
+  document.getElementById("feedback").textContent="";
+  document.getElementById("nextBtn").disabled=true;
+  document.getElementById("nextBtn").textContent="Continue →";
+  document.getElementById("nextBtn").onclick=nextStep;
+  showScreen("learn");
+  renderStep();
+}
+function renderStep(){
+  current.locked=false;
+  const w=lessons[current.index].word;
+  const box=document.getElementById("lessonCard");
+  document.getElementById("lessonBar").style.width=((current.step+1)/4*100)+"%";
+  document.getElementById("feedback").textContent="";
+  const next=document.getElementById("nextBtn");
+  next.disabled=false;
+
+  if(current.step===0){
+    next.disabled=true;
+    box.innerHTML=`
+      <div class="eyebrow">STEP 1 · LISTEN BEFORE REVEALING</div>
+      <p class="muted">No translation yet. Listen and see if you can guess!</p>
+      <div class="arabic">${w[0]}</div>
+      <button class="btn" id="listenFirst">🔊 Listen slowly · 3 times</button>
+      <button class="btn alt" id="revealMeaningButton" disabled>Reveal meaning</button>
+      <div id="firstReveal" class="hidden">
+        <div class="translit">${w[1]}</div>
+        <div class="meaning">${w[2]}</div>
+        <div class="note">${w[6]}</div>
+      </div>`;
+    document.getElementById("listenFirst").onclick=()=>playArabic(w[0],3);
+    document.getElementById("revealMeaningButton").onclick=()=>{
+      document.getElementById("firstReveal").classList.remove("hidden");
+      soundEffect("reveal");
+      next.disabled=false;
+    };
+  }else if(current.step===1){
+    const choices=[w[2]];
+    for(let j=0;choices.length<4;j++){
+      const candidate=words[(current.index*3+j*7+11)%words.length][2];
+      if(!choices.includes(candidate))choices.push(candidate);
+    }
+    choices.sort(()=>Math.random()-.5);
+    const correct=choices.indexOf(w[2]);
+    box.innerHTML=`<div class="eyebrow">STEP 2 · GUESS THE MEANING</div>
+      <div class="arabic">${w[0]}</div>
+      <button class="btn alt" id="quizListen">🔊 Listen again</button>
+      <p>What do you think this means?</p>
+      <div id="choices"></div>`;
+    document.getElementById("quizListen").onclick=()=>playArabic(w[0],1);
+    const list=document.getElementById("choices");
+    choices.forEach((c,i)=>{
+      const b=document.createElement("button");
+      b.className="choice";b.textContent=c;
+      b.onclick=()=>{
+        if(current.locked)return;
+        current.locked=true;
+        list.querySelectorAll("button").forEach(x=>x.disabled=true);
+        if(i===correct){
+          b.classList.add("good");
+          document.getElementById("feedback").textContent="Correct! 🎉 +10 XP";
+          state.xp+=10;state.correct++;soundEffect("correct");
+        }else{
+          b.classList.add("bad");
+          list.children[correct].classList.add("good");
+          document.getElementById("feedback").textContent="Not quite. The answer is: "+w[2];
+          soundEffect("wrong");
+        }
+        state.attempts++;save();next.disabled=false;
+      };
+      list.appendChild(b);
+    });
+  }else if(current.step===2){
+    box.innerHTML=`<div class="eyebrow">STEP 3 · A FULL PHRASE</div>
+      <p class="muted">Listen to the phrase. Try to understand it before revealing the translation.</p>
+      <div class="arabic">${w[3]}</div>
+      <button class="btn" id="phraseListen">🔊 Hear the full phrase · 3 times</button>
+      <button class="btn alt" id="phraseRevealBtn">Reveal pronunciation and meaning</button>
+      <div id="phraseReveal" class="hidden">
+        <div class="translit">${w[4]}</div>
+        <div class="meaning">${w[5]}</div>
+        <div class="note">Try repeating the phrase aloud. Iraqi pronunciation varies by region.</div>
+      </div>`;
+    document.getElementById("phraseListen").onclick=()=>playArabic(w[3],3);
+    document.getElementById("phraseRevealBtn").onclick=()=>{
+      document.getElementById("phraseReveal").classList.remove("hidden");
+      soundEffect("reveal");
+    };
+  }else{
+    box.innerHTML=`<div class="eyebrow">STEP 4 · FINAL PRACTICE</div>
+      <p>Try remembering both phrases before checking the answers.</p>
+      <div class="arabic">${w[0]}</div>
+      <button class="btn" id="lastListen">🔊 Listen to the word · 3 times</button>
+      <div class="arabic">${w[3]}</div>
+      <button class="btn alt" id="lastPhrase">🔊 Listen to the full phrase · 3 times</button>
+      <button class="btn alt" id="lastReveal">Show answers</button>
+      <div id="lastAnswers" class="hidden">
+        <div class="translit">${w[1]}</div>
+        <div class="meaning">${w[2]}</div>
+        <div class="translit">${w[4]}</div>
+        <div class="meaning">${w[5]}</div>
+      </div>`;
+    document.getElementById("lastListen").onclick=()=>playArabic(w[0],3);
+    document.getElementById("lastPhrase").onclick=()=>playArabic(w[3],3);
+    document.getElementById("lastReveal").onclick=()=>{
+      document.getElementById("lastAnswers").classList.remove("hidden");
+      soundEffect("reveal");
+    };
+    next.textContent="Finish lesson →";
+  }
+}
+function nextStep(){
+  if(current.step<3){
+    current.step++;renderStep();
+    return;
+  }
+  const id=lessons[current.index].id;
+  if(!state.done.includes(id)){state.done.push(id);state.xp+=20;save()}
+  const box=document.getElementById("lessonCard");
+  box.innerHTML=`<div style="text-align:center;padding:25px 0"><div style="font-size:55px">🎉</div><h2>Lesson complete!</h2><p class="muted">Keep listening and practising every day.</p><h2>+20 XP</h2></div>`;
+  document.getElementById("lessonBar").style.width="100%";
+  document.getElementById("feedback").textContent="";
+  const next=document.getElementById("nextBtn");
+  next.textContent=current.index===99?"Course complete!":"Next lesson →";
+  next.onclick=()=>{
+    next.onclick=nextStep;
+    if(current.index<99)startLesson(current.index+1);
+    else showScreen("home");
+  };
+  renderPath();
+}
+function renderPhrases(){
+  const box=document.getElementById("phraseList");
+  box.replaceChildren();
+  words.forEach(w=>{
+    const item=document.createElement("div");
+    item.className="panel";
+    const ar=document.createElement("div");ar.className="arabic";ar.textContent=w[0];
+    const listen=document.createElement("button");listen.className="btn";listen.textContent="🔊 Listen";
+    listen.onclick=()=>playArabic(w[3],3);
+    const details=document.createElement("details");
+    details.innerHTML=`<summary>Reveal meaning</summary><p class="translit">${w[1]}</p><p class="meaning">${w[2]}</p><p>${w[3]}</p><p class="muted">${w[4]} — ${w[5]}</p>`;
+    item.append(ar,listen,details);box.appendChild(item);
+  });
+}
+
+/* SPEECH: use an installed Arabic voice if available. */
+function playArabic(text,count=3){
+  if(!("speechSynthesis" in window)){
+    alert("Speech playback isn't supported by this browser. Try Safari or Chrome.");
+    return;
+  }
+  const synth=window.speechSynthesis;
+  speechToken++;
+  const token=speechToken;
+  synth.cancel();
+
+  let voices=synth.getVoices();
+  let voice=voices.find(v=>(v.lang||"").toLowerCase()==="ar-iq")
+    ||voices.find(v=>(v.lang||"").toLowerCase().startsWith("ar"));
+
+  let played=0;
+  function playNext(){
+    if(token!==speechToken||played>=count)return;
+    const utter=new SpeechSynthesisUtterance(text);
+    utter.lang=voice?voice.lang:"ar-IQ";
+    utter.rate=.72;utter.pitch=1;utter.volume=1;
+    if(voice)utter.voice=voice;
+    utter.onstart=()=>{if(played===0)soundEffect("start")};
+    utter.onend=()=>{
+      if(token!==speechToken)return;
+      played++;
+      if(played<count)setTimeout(playNext,650);
+      else{
+        const reveal=document.getElementById("revealMeaningButton");
+        if(reveal)reveal.disabled=false;
+      }
+    };
+    utter.onerror=()=>{
+      document.getElementById("feedback").textContent="Couldn't play audio. Try tapping Listen again. Your device may not have an Arabic voice installed.";
+      const reveal=document.getElementById("revealMeaningButton");
+      if(reveal)reveal.disabled=false;
+    };
+    synth.speak(utter);
+  }
+  if(voices.length)playNext();
+  else{
+    synth.onvoiceschanged=()=>{
+      voices=synth.getVoices();
+      voice=voices.find(v=>(v.lang||"").toLowerCase()==="ar-iq")
+        ||voices.find(v=>(v.lang||"").toLowerCase().startsWith("ar"));
+      playNext();
+    };
+    setTimeout(()=>{if(token===speechToken&&played===0)playNext()},800);
+  }
+}
+
+/* Simple generated sound effects — no audio files required. */
+function soundEffect(kind){
+  try{
+    const AudioCtx=window.AudioContext||window.webkitAudioContext;
+    if(!AudioCtx)return;
+    const ctx=new AudioCtx();
+    const notes=kind==="correct"?[660,880]:kind==="wrong"?[220,180]:kind==="reveal"?[520,740]:[440];
+    notes.forEach((frequency,i)=>{
+      const osc=ctx.createOscillator(),gain=ctx.createGain();
+      osc.type=kind==="wrong"?"triangle":"sine";
+      osc.frequency.value=frequency;
+      const start=ctx.currentTime+i*.1;
+      gain.gain.setValueAtTime(.001,start);
+      gain.gain.exponentialRampToValueAtTime(.09,start+.02);
+      gain.gain.exponentialRampToValueAtTime(.001,start+.18);
+      osc.connect(gain);gain.connect(ctx.destination);
+      osc.start(start);osc.stop(start+.2);
+    });
+    setTimeout(()=>ctx.close(),700);
+  }catch(e){}
+}
+
+/* BEGINNER JAVASCRIPT COURSE */
+const jsLessons=[
+{title:"Your first output",desc:"console.log() prints a value. Text needs quotation marks.",code:'console.log("Hello, world!");'},
+{title:"Variables",desc:"Use const for values you won't reassign, and let for values that can change.",code:'const name = "Ali";\nlet score = 10;\nconsole.log(name);\nconsole.log(score);'},
+{title:"Strings",desc:"Strings are text. Join strings using the + operator.",code:'const language = "Iraqi Arabic";\nconsole.log("I am learning " + language);'},
+{title:"Numbers",desc:"JavaScript can do maths using +, -, * and /.",code:'const lessons = 10;\nconsole.log(lessons * 2);\nconsole.log(20 / 4);'},
+{title:"Conditions",desc:"if and else let your program make decisions.",code:'const xp = 30;\nif (xp >= 20) {\n console.log("Level up!");\n} else {\n console.log("Keep practising!");\n}'},
+{title:"Arrays",desc:"An array stores a list. Index zero means the first item.",code:'const words = ["hala", "shlonak", "yalla"];\nconsole.log(words[0]);\nconsole.log(words.length);'},
+{title:"Loops",desc:"A loop repeats code for each item in a list.",code:'const words = ["hala", "shlonak", "yalla"];\nfor (const word of words) {\n console.log(word);\n}'},
+{title:"Functions",desc:"Functions let you reuse code.",code:'function greet(name) {\n console.log("Ahlan " + name);\n}\ngreet("Sara");'},
+{title:"Objects",desc:"Objects group related data into named properties.",code:'const phrase = {\n arabic: "هلا",\n meaning: "hi"\n};\nconsole.log(phrase.meaning);'},
+{title:"Mini project",desc:"Make a tiny Iraqi Arabic quiz prompt. Try changing the phrase and answer.",code:'const phrase = "هلا";\nconst meaning = "hi";\nconsole.log("What does " + phrase + " mean?");\nconsole.log("Answer: " + meaning);'}
+];
+let codeIndex=0;
+function renderCode(){
+  const l=jsLessons[codeIndex];
+  document.getElementById("codeTitle").textContent=(codeIndex+1)+". "+l.title;
+  document.getElementById("codeCount").textContent=(codeIndex+1)+" / "+jsLessons.length;
+  document.getElementById("codeDescription").textContent=l.desc;
+  document.getElementById("codeExample").textContent=l.code;
+  document.getElementById("codeEditor").value=l.code;
+  document.getElementById("codeOutput").textContent="Tap Run JavaScript to see the output.";
+}
+function changeCode(dir){
+  codeIndex=Math.max(0,Math.min(jsLessons.length-1,codeIndex+dir));
+  renderCode();
+}
+function runCode(){
+  const code=document.getElementById("codeEditor").value;
+  const output=document.getElementById("codeOutput");
+  output.textContent="Running…";
+  const frame=document.createElement("iframe");
+  frame.sandbox="allow-scripts";
+  frame.style.display="none";
+  document.body.appendChild(frame);
+  const escaped=code.replace(/<\/script/gi,"<\\/script");
+  frame.srcdoc='<!doctype html><meta charset="utf-8"><script>const logs=[];const fmt=v=>typeof v==="string"?v:JSON.stringify(v);console.log=(...a)=>logs.push(a.map(fmt).join(" "));console.error=(...a)=>logs.push("Error: "+a.map(fmt).join(" "));try{'+escaped+'\n}catch(e){logs.push(e.name+": "+e.message)}parent.postMessage({type:"iq-code",logs},"*");<\/script>';
+  let done=false;
+  function receive(event){
+    if(event.source!==frame.contentWindow||event.data?.type!=="iq-code")return;
+    done=true;output.textContent=event.data.logs.join("\n")||"(No output — try console.log(...))";
+    window.removeEventListener("message",receive);frame.remove();
+  }
+  window.addEventListener("message",receive);
+  setTimeout(()=>{
+    if(!done){
+      window.removeEventListener("message",receive);frame.remove();
+      output.textContent="Code took too long or didn't finish. Check for an infinite loop.";
+    }
+  },1500);
+}
+function resetProgress(){
+  if(!confirm("Reset your saved course progress?"))return;
+  state={xp:0,done:[],correct:0,attempts:0};save();renderPath();
+}
+renderPath();
+updateStats();
+renderCode();
 </script>
 </body>
 </html>
